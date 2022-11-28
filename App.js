@@ -9,7 +9,7 @@ import NewPost from './app/components/new_post';
 export default function App() {
   return (
     <View style={styles.container}>
-      <HomeScreen/>
+      <NewPost/>
       <StatusBar style="auto" />
     </View>
   );

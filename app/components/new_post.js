@@ -23,6 +23,14 @@ export default function NewPost() {
         <Text style={styles.largeText}>Return by</Text>
       </View>
 
+      <View style={styles.itemDescription}>
+        <Text style={styles.largeText}>Details</Text>
+        <Text style={styles.mediumText}>Elaborate as you'd like...</Text>
+      </View>
+      <View style={styles.postButton}>
+        <Text style={styles.postButtonText}>Post</Text>
+      </View>
+
     </View>
   );
 }
@@ -31,33 +39,52 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: themes.colors.white,
-    alignItems: 'center',
+    alignItems: 'left',
     justifyContent: 'space-between',
   },
   itemDescription: {
-    height: '30%',
+    //height: '20%',
     width: '85%',
+    paddingBottom: '10%',
+    justifyContent: 'left',
+    alignItems: 'left'
   },
   itemInfo: {
-    height: '30%',
-    width: '85%',
-    paddingRight: '50%',
+    //height: '30%',
+    width: '100%',
+    paddingBottom: '10%',
   },
   titleText: {
-    //fontFamily: 'Lato-Black',
+    //fontFamily: 'Racing-Sans-One',
     color: themes.colors.orange,
     fontSize: 48,
     textAlign: "center",
     paddingTop: "20%",
   },
   largeText: {
-      color: themes.colors.darkGrey,
+      color: themes.colors.black,
       fontSize: 22,
       textAlign: 'left',
+      paddingBottom: '5%'
   },
   mediumText: {
-    color: themes.colors.grey,
+    color: themes.colors.darkGrey,
     fontSize: 17,
     textAlign: 'left',
 },
+postButton: {
+    height: '5%',
+    width: 100,
+    backgroundColor: themes.colors.orange,
+    marginBottom: '10%',
+    marginLeft: '50%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 9999,
+
+  },
+  postButtonText: {
+    color: themes.colors.white,
+    fontSize: 22,
+  }
 });
