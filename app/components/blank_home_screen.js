@@ -2,11 +2,13 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
+import { useFonts } from 'expo-font';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>daha</Text>
+ 
       <View style={styles.homeBar}>
         <Image
         source={Icons.home.dark}
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   titleText: {
-    //fontFamily: 'Lato-Black',
+    fontFamily: 'Lato-Black',
     color: themes.colors.orange,
     fontSize: 48,
     textAlign: "left",

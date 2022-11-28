@@ -7,6 +7,7 @@ export default function NewPost() {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>daha</Text>
+      <View style={styles.info}>
       <View style={styles.itemDescription}>
         <Text style={styles.largeText}>Item</Text>
         <Text style={styles.mediumText}>Tell us in a few words what you’re looking to borrow...</Text>
@@ -30,6 +31,7 @@ export default function NewPost() {
       <View style={styles.postButton}>
         <Text style={styles.postButtonText}>Post</Text>
       </View>
+      </View>
 
     </View>
   );
@@ -39,6 +41,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: themes.colors.white,
+    alignItems: 'center',
+    //justifyContent: 'space-around',
+  },
+  info: {
     alignItems: 'left',
     justifyContent: 'space-between',
   },
@@ -46,13 +52,15 @@ const styles = StyleSheet.create({
     //height: '20%',
     width: '85%',
     paddingBottom: '10%',
-    justifyContent: 'left',
-    alignItems: 'left'
+    paddingTop: '10%',
+    //justifyContent: 'center',
+    //alignItems: 'left'
   },
   itemInfo: {
     //height: '30%',
     width: '100%',
     paddingBottom: '10%',
+    paddingTop: '10%',
   },
   titleText: {
     //fontFamily: 'Racing-Sans-One',
