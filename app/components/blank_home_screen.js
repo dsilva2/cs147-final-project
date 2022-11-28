@@ -29,7 +29,7 @@ export default function HomeScreen() {
         </Image>
 
         <Image
-        source={Icons.profile.dark}
+        source={Icons.profile.light}
         style={styles.homeBarButton}>
         </Image>
       </View>
@@ -48,13 +48,14 @@ const styles = StyleSheet.create({
     //fontFamily: 'Lato-Black',
     color: themes.colors.orange,
     fontSize: 48,
-    textAlign: "center",
-    marginTop: "10%"
+    textAlign: "left",
+    paddingTop: "10%",
+    paddingRight: '60%'
   },
   homeBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '100%',
+    width: '95%',
     alignItems: 'center',
     paddingBottom: '5%',
   },
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
     height: 48,
   },
   postButton: {
-    width: 72,
-    height: 72,
+    width: 80,
+    height: 80,
   }
 });
