@@ -4,6 +4,9 @@ import Icons from './assets/Icons';
 import themes from './assets/Themes/themes';
 import HomeScreen from './app/components/blank_home_screen';
 import NewPost from './app/components/new_post';
+import Comment from './app/components/my_daha';
+
+
 
 
 export default function App() {
