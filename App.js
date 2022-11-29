@@ -7,12 +7,20 @@ import NewPost from './app/components/new_post';
 import Comment from './app/components/my_daha';
 
 
-
+const firstComment = {
+  commentUser: 'Alix Cui',
+  commentText: 'This video is amazing',
+  timeStamp: '3 hours ago',
+};
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <NewPost/>
+      <Comment
+        commentUser={firstComment.commentUser}
+        commentText={firstComment.commentText}
+        timeStamp={firstComment.timeStamp}
+      />
       <StatusBar style="auto" />
     </View>
   );
