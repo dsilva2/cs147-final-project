@@ -19,4 +19,11 @@ export default {
         light: require('./profile_button_light.png'),
         dark: require('./profile_button_dark.png'),
     },
+    drew_photo: {
+        dope: require('./drew_picture.png')
+    },
+    post_options: {
+        edit: require('./edit_post.png'),
+        delete: require('./delete_post.png'),
+    }
 }

@@ -4,23 +4,21 @@ import Icons from './assets/Icons';
 import themes from './assets/Themes/themes';
 import HomeScreen from './app/components/blank_home_screen';
 import NewPost from './app/components/new_post';
-import Comment from './app/components/my_daha';
+import MyDaha from './app/components/my_daha';
 
 
 const firstComment = {
-  commentUser: 'Alix Cui',
-  commentText: 'This video is amazing',
-  timeStamp: '3 hours ago',
+  timeStamp: 'Sweater Vest',
 };
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Comment
-        commentUser={firstComment.commentUser}
-        commentText={firstComment.commentText}
+      <MyDaha
         timeStamp={firstComment.timeStamp}
       />
+      
       <StatusBar style="auto" />
     </View>
   );
