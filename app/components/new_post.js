@@ -13,10 +13,19 @@ export default function NewPost() {
         <Text style={styles.mediumText}>Tell us in a few words what you’re looking to borrow...</Text>
       </View>
 
+
+
       <View style={styles.itemInfo}>
-        <Text style={styles.largeText}>Size</Text>
-        <Text style={styles.largeText}>Color</Text>
-        <Text style={styles.largeText}>Occasion</Text>
+        <View style={styles.textWithArrow}>
+            <Text style={styles.largeText}>Size</Text>
+        </View>
+        <View style={styles.textWithArrow}>
+            <Text style={styles.largeText}>Color</Text>
+        </View>
+        <View style={styles.textWithArrow}>
+            <Text style={styles.largeText}>Occasion</Text>
+        </View>
+
       </View>
 
       <View style={styles.itemInfo}>
@@ -28,9 +37,12 @@ export default function NewPost() {
         <Text style={styles.largeText}>Details</Text>
         <Text style={styles.mediumText}>Elaborate as you'd like...</Text>
       </View>
+
+
       <View style={styles.postButton}>
         <Text style={styles.postButtonText}>Post</Text>
       </View>
+      
       </View>
 
     </View>
@@ -42,25 +54,33 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: themes.colors.white,
     alignItems: 'center',
-    //justifyContent: 'space-around',
   },
-  info: {
-    alignItems: 'left',
+  textWithArrow: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  itemDescription: {
-    //height: '20%',
-    width: '85%',
-    paddingBottom: '10%',
-    paddingTop: '10%',
-    //justifyContent: 'center',
-    //alignItems: 'left'
-  },
-  itemInfo: {
-    //height: '30%',
+  largeText: {
+    color: themes.colors.black,
+    fontSize: 22,
+    textAlign: 'left',
+    paddingBottom: '5%',
+    justifyContent: 'space-between',
+},
+   itemInfo: {
     width: '100%',
     paddingBottom: '10%',
     paddingTop: '10%',
+  },
+  info: {
+    //alignItems: 'left',
+    //justifyContent: 'space-between',
+    marginLeft: '2.5%'
+  },
+  itemDescription: {
+    width: '85%',
+    paddingBottom: '10%',
+    paddingTop: '10%',
+
   },
   titleText: {
     //fontFamily: 'Racing-Sans-One',
@@ -69,12 +89,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingTop: "20%",
   },
-  largeText: {
-      color: themes.colors.black,
-      fontSize: 22,
-      textAlign: 'left',
-      paddingBottom: '5%'
-  },
   mediumText: {
     color: themes.colors.darkGrey,
     fontSize: 17,
@@ -82,10 +96,10 @@ const styles = StyleSheet.create({
 },
 postButton: {
     height: '5%',
-    width: 100,
     backgroundColor: themes.colors.orange,
     marginBottom: '10%',
     marginLeft: '50%',
+    marginRight: '10%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 9999,
@@ -94,5 +108,6 @@ postButton: {
   postButtonText: {
     color: themes.colors.white,
     fontSize: 22,
-  }
+  },
+
 });
