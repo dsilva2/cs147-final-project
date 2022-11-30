@@ -1,10 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import { useFonts } from 'expo-font';
+import 'react-native-gesture-handler';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
-export default function HomeScreen() {
+
+export default function HomeScreen({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>daha</Text>
@@ -20,10 +24,12 @@ export default function HomeScreen() {
         style={styles.homeBarButton}>
         </Image>
 
-        <Image
-        source={Icons.post.dark}
-        style={styles.postButton}>
-        </Image>
+        <Pressable onPress={() => {navigation.navigate("new-post")}}>
+            <Image
+            source={Icons.post.dark}
+            style={styles.postButton}>
+            </Image>
+        </Pressable>
 
         <Image
         source={Icons.message.light}
@@ -47,7 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   titleText: {
-    fontFamily: 'Lato-Black',
+    //fontFamily: 'Lato-Black',
     color: themes.colors.orange,
     fontSize: 48,
     textAlign: "left",

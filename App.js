@@ -5,22 +5,28 @@ import themes from './assets/Themes/themes';
 import HomeScreen from './app/components/blank_home_screen';
 import NewPost from './app/components/new_post';
 import MyDaha from './app/components/my_daha';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-gesture-handler';
 
 
-const firstComment = {
-  timeStamp: 'Sweater Vest',
-};
+// const firstComment = {
+//   timeStamp: 'Sweater Vest',
+// };
+
+const Stack = createStackNavigator();
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <MyDaha
-        timeStamp={firstComment.timeStamp}
-      />
-      
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="home-screen" component={HomeScreen} />
+          <Stack.Screen name="new-post" component={NewPost} />
+          <Stack.Screen name="my-daha" component={MyDaha} />
+      </Stack.Navigator>
+            
+        </NavigationContainer>
   );
 }
 

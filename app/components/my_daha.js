@@ -1,6 +1,7 @@
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
+import 'react-native-gesture-handler';
 
 
 
@@ -13,11 +14,16 @@ import themes from '../../assets/Themes/themes';
 //   timeStamp: "Text",
 //   commentText: "Text"
 // }
-const MyDaha = ({ timeStamp }) => {
+const MyDaha = ({ navigation, isLookingFor, size, color, occasion, needsBy, returnBy, details, status }) => {
 
 
   return (
+    
     <View style={styles.container}>
+      <Pressable onPress={() => {navigation.navigate("new-post")}}>
+        <Text style={styles.xText}>✕</Text>
+      </Pressable>
+
         <View style={styles.dahaPhoto}>
             <Image
             source={Icons.drew_photo.dope}
@@ -34,56 +40,56 @@ const MyDaha = ({ timeStamp }) => {
         <View style={styles.name}>
           <Text style={styles.textInfo}>is looking for</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{isLookingFor}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Size</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{size}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Color</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{color}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Occasion</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{occasion}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Needs by</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{needsBy}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Return by</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{returnBy}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Details</Text>
         </View>
-        <Text style={styles.itemInfo}>{timeStamp}</Text>
+        <Text style={styles.itemInfo}>{details}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Status</Text>
         </View>
-        <Text style={styles.statusText}>{timeStamp}</Text>
+        <Text style={styles.statusText}>{status}</Text>
       </View>
     </View>
 
@@ -110,18 +116,26 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 8,
     width: '100%',
-    paddingTop: '20%'
+    paddingTop: '20%',
+    backgroundColor: themes.colors.white,
+    height: '100%',
+  },
+  xText: {
+    color: themes.colors.grey,
+    fontSize: 32,
+    textAlign: 'right',
+    marginRight: '5%'
   },
   nameText: {
     color: themes.colors.black,
-    fontSize: 44
+    fontSize: 34
   },
   myDahaInfo: {
     justifyContent: 'space-between'
   },
   myDahaPhoto: {
-    width: 100,
-    height: 100,
+    width: 128,
+    height: 128,
     borderRadius: 9999,
   },
   dahaPhoto: {
@@ -133,6 +147,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     paddingTop: '10%',
+    paddingBottom: '10%',
+    marginRight: '5%'
   },
   changePost: {
     width: 32,

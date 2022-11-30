@@ -1,49 +1,68 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import 'react-native-gesture-handler';
 
-export default function NewPost() {
+export default function NewPost({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>daha</Text>
       <View style={styles.info}>
-      <View style={styles.itemDescription}>
-        <Text style={styles.largeText}>Item</Text>
-        <Text style={styles.mediumText}>Tell us in a few words what you’re looking to borrow...</Text>
-      </View>
+        <Pressable style={styles.itemDescription} onPress={() => {navigation.navigate("my-daha")}}>
+            <Text style={styles.largeText}>Item</Text>
+            <Text style={styles.mediumText}>Tell us in a few words what you’re looking to borrow...</Text>
+        </Pressable>
 
 
 
-      <View style={styles.itemInfo}>
-        <View style={styles.textWithArrow}>
+        <Pressable style={styles.textWithArrowBorder}>
             <Text style={styles.largeText}>Size</Text>
-        </View>
-        <View style={styles.textWithArrow}>
+            <Text style={styles.largeText}>→</Text>
+        </Pressable>
+
+        <Pressable style={styles.textWithArrow}>
             <Text style={styles.largeText}>Color</Text>
-        </View>
-        <View style={styles.textWithArrow}>
+            <Text style={styles.largeText}>→</Text>
+        </Pressable>
+
+        <Pressable style={styles.textWithArrow}>
             <Text style={styles.largeText}>Occasion</Text>
-        </View>
+            <Text style={styles.largeText}>→</Text>
+        </Pressable>
+
+        <Pressable style={styles.textWithArrowBorder}>
+            <Text style={styles.largeText}>Need by</Text>
+            <Text style={styles.largeText}>→</Text>
+        </Pressable>
+
+        <Pressable style={styles.textWithArrow}>
+            <Text style={styles.largeText}>Return by</Text>
+            <Text style={styles.largeText}>→</Text>
+        </Pressable>
+
+        <Pressable style={styles.itemDescription}>
+            <Text style={styles.largeText}>Details</Text>
+            <Text style={styles.mediumText}>Elaborate as you'd like...</Text>
+        </Pressable>
+
+
+        
 
       </View>
 
-      <View style={styles.itemInfo}>
-        <Text style={styles.largeText}>Need by</Text>
-        <Text style={styles.largeText}>Return by</Text>
-      </View>
+        <Pressable style={styles.postButton} onPress={() => {navigation.navigate("home-screen")}}>
+            <Text style={styles.postButtonText}>Post →</Text>
+        </Pressable>
 
-      <View style={styles.itemDescription}>
-        <Text style={styles.largeText}>Details</Text>
-        <Text style={styles.mediumText}>Elaborate as you'd like...</Text>
-      </View>
-
-
-      <View style={styles.postButton}>
-        <Text style={styles.postButtonText}>Post</Text>
-      </View>
       
-      </View>
+
+
+
+      
+      
 
     </View>
   );
@@ -58,6 +77,11 @@ const styles = StyleSheet.create({
   textWithArrow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  textWithArrowBorder: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: '10%'
   },
   largeText: {
     color: themes.colors.black,
@@ -74,7 +98,9 @@ const styles = StyleSheet.create({
   info: {
     //alignItems: 'left',
     //justifyContent: 'space-between',
-    marginLeft: '2.5%'
+    marginLeft: '2.5%',
+    justifyContent: 'flex-start',
+    width: '85%',
   },
   itemDescription: {
     width: '85%',
@@ -97,17 +123,18 @@ const styles = StyleSheet.create({
 postButton: {
     height: '5%',
     backgroundColor: themes.colors.orange,
-    marginBottom: '10%',
-    marginLeft: '50%',
-    marginRight: '10%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 9999,
-
+    flexDirection: 'row',
+    marginLeft: '50%',
+    marginTop: '20%'
   },
   postButtonText: {
     color: themes.colors.white,
     fontSize: 22,
+    paddingLeft: '10%',
+    paddingRight: '10%',
   },
 
 });
