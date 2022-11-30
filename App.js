@@ -28,7 +28,12 @@ export default function App() {
     {
       postCreatorName: "Christian Pulisic",
       itemNeeded: "Fur Coat", 
-      dateNeededBy: "Wednesdat @ 10:30am",
+      dateNeededBy: "Wednesday @ 10:30am",
+    }, 
+    {
+      postCreatorName: "Irene Au", 
+      itemNeeded: "Braun Watch", 
+      dateNeededBy: "Wednesday @ 3:20pm",
     }
   ]
 
