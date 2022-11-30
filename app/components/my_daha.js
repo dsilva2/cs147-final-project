@@ -14,8 +14,8 @@ import 'react-native-gesture-handler';
 //   timeStamp: "Text",
 //   commentText: "Text"
 // }
-const MyDaha = ({ navigation, isLookingFor, size, color, occasion, needsBy, returnBy, details, status }) => {
-
+const MyDaha = ({ navigation, route, isLookingFor, size, color, occasion, needsBy, returnBy, details, status }) => {
+  const { origin } = route.params;
 
   return (
     
@@ -40,7 +40,7 @@ const MyDaha = ({ navigation, isLookingFor, size, color, occasion, needsBy, retu
         <View style={styles.name}>
           <Text style={styles.textInfo}>is looking for</Text>
         </View>
-        <Text style={styles.itemInfo}>{isLookingFor}</Text>
+        <Text style={styles.itemInfo}>{origin[0]}</Text>
       </View>
 
       <View style={styles.header}>
@@ -82,7 +82,7 @@ const MyDaha = ({ navigation, isLookingFor, size, color, occasion, needsBy, retu
         <View style={styles.name}>
           <Text style={styles.textInfo}>Details</Text>
         </View>
-        <Text style={styles.itemInfo}>{details}</Text>
+        <Text style={styles.itemInfo}>{origin[1]}</Text>
       </View>
 
       <View style={styles.header}>

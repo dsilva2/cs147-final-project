@@ -10,10 +10,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 
 
-// const firstComment = {
-//   timeStamp: 'Sweater Vest',
-// };
-
 const Stack = createStackNavigator();
 
 
