@@ -3,14 +3,17 @@ import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import themes from '../../assets/Themes/themes';
 
-
+ 
 
 export default function FeedItem({navigation, postCreatorName, itemNeeded, dateNeededBy}){
 
 
+    const pressedGotcha = () => {
+        console.log(`Gotcha, ${postCreatorName}!`);
+    }
+
     return(
         <SafeAreaView>
-
         <Pressable style={styles.container}>
             <View style={styles.profileImageView}>
                 <Image source={require("../../assets/calvin.jpg")} style={styles.profileImage}></Image>
@@ -24,16 +27,16 @@ export default function FeedItem({navigation, postCreatorName, itemNeeded, dateN
 
                 <View style={styles.postInfoButtonsView}>
                     <Pressable style={styles.infoButton}>
-                        <Ionicons name="chatbubble-outline" size={'25%'} color={themes.colors.darkGrey} />
+                        <Ionicons name="chatbubble-outline" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
                     <Pressable style={styles.infoButton}>
-                        <AntDesign name="retweet" size={'25%'} color={themes.colors.darkGrey} />
+                        <AntDesign name="retweet" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
                     <Pressable style={styles.infoButton}>
-                        <AntDesign name="hearto" size={'25%'} color={themes.colors.darkGrey} />
+                        <AntDesign name="hearto" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
 
-                    <Pressable style={styles.gotchaButton}>
+                    <Pressable style={styles.gotchaButton} onPress={pressedGotcha}>
                         <Text style={styles.gotchaText}>Gotcha!</Text>
 
                     </Pressable>
@@ -66,7 +69,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        borderColor: themes.colors.darkGrey,
+        borderColor: themes.colors.grey,
         borderBottomWidth: 1, 
         // aspectRatio: 1,
     }, 
@@ -115,7 +118,7 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%',
         marginBottom: '2.5%',
         fontSize: themes.fontSizes.smallBody, 
-        color: themes.colors.darkGrey,
+        color: themes.colors.grey,
     },
 
     infoButton: {
