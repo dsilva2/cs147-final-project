@@ -32,7 +32,7 @@ export default function NewPost({navigation}) {
                 onChangeText={onChangeItem}
                 value={itemText}
                 placeholder="Tell us what you’re looking to borrow..."
-                placeholderTextColor={themes.colors.darkGrey}
+                placeholderTextColor={themes.colors.grey}
             />
         </Pressable>
 
@@ -70,7 +70,7 @@ export default function NewPost({navigation}) {
             value={detailsText}
             //multiline={true}
             placeholder="Elaborate as you'd like..."
-            placeholderTextColor={themes.colors.darkGrey}/>       
+            placeholderTextColor={themes.colors.grey}/>       
         </Pressable>
 
 

@@ -89,7 +89,8 @@ const MyDaha = ({ navigation, route, isLookingFor, size, color, occasion, needsB
         <View style={styles.name}>
           <Text style={styles.textInfo}>Status</Text>
         </View>
-        <Text style={styles.statusText}>{status}</Text>
+        <Text style={styles.statusText}>Unfulfilled</Text>
+        {/* <Text style={styles.statusText}>{status}</Text> */}
       </View>
     </View>
 
@@ -162,18 +163,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInfo: {
-    color: themes.colors.darkGrey,
-    fontFamily: 'Raleway'
+    color: themes.colors.grey,
+    fontFamily: 'Raleway',
+    fontSize: 17
 
   },
   itemInfo: {
     color: themes.colors.black,
-    fontFamily: 'Raleway'
+    fontFamily: 'Raleway',
+    fontSize: 17
+
 
   },
   statusText: {
     color: themes.colors.orange,
-    fontFamily: 'Raleway'
+    fontFamily: 'Raleway',
+    fontSize: 17
 
   },
   header: {
@@ -181,7 +186,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 4,
-    marginTop: '10%',
+    marginTop: '7.5%',
     marginLeft: '5%',
     marginRight: '5%',
     //paddingTop: 50
