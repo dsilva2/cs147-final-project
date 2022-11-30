@@ -25,5 +25,8 @@ export default {
     post_options: {
         edit: require('./edit_post.png'),
         delete: require('./delete_post.png'),
-    }
+    },
+    post_button: {
+        orange: require('./post_button_figma.png'),
+    },
 }

@@ -128,7 +128,9 @@ const styles = StyleSheet.create({
   },
   nameText: {
     color: themes.colors.black,
-    fontSize: 34
+    fontSize: 34,
+    fontFamily: 'Raleway',
+
   },
   myDahaInfo: {
     justifyContent: 'space-between'
@@ -160,13 +162,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textInfo: {
-    color: themes.colors.darkGrey
+    color: themes.colors.darkGrey,
+    fontFamily: 'Raleway'
+
   },
   itemInfo: {
-    color: themes.colors.black
+    color: themes.colors.black,
+    fontFamily: 'Raleway'
+
   },
   statusText: {
-    color: themes.colors.orange
+    color: themes.colors.orange,
+    fontFamily: 'Raleway'
+
   },
   header: {
     flexDirection: 'row',

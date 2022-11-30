@@ -9,15 +9,15 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 
 //var desiredItem = "Tell us in a few words what you’re looking to borrow..."
-var desiredItem = "..."
+var desiredItem = "..asdf."
 var detailsBlank = "Elaborate as you'd like..."
 
 
 
 
 export default function NewPost({navigation}) {
-    const [itemText, onChangeItem] = useState(desiredItem);
-    const [detailsText, onChangeDetails] = useState(detailsBlank);
+    const [itemText, onChangeItem] = useState('');
+    const [detailsText, onChangeDetails] = useState('');
   return (
     <View style={styles.container}>
         <Pressable onPress={() => {navigation.navigate("home-screen")}}>
@@ -25,13 +25,15 @@ export default function NewPost({navigation}) {
         </Pressable>
         <Text style={styles.titleText}>daha</Text>
       <View style={styles.info}>
-        <Pressable style={styles.itemDescription} onPress={() => {navigation.navigate("home-screen")}}>
-            <Text style={styles.largeText}>Item</Text>
+        <Pressable style={styles.itemDescription}>
+            <Text style={styles.largeText}>Item*</Text>
 
-                <TextInput style={styles.mediumText}
+            <TextInput style={styles.mediumText}
                 onChangeText={onChangeItem}
                 value={itemText}
-                />
+                placeholder="Tell us what you’re looking to borrow..."
+                placeholderTextColor={themes.colors.darkGrey}
+            />
         </Pressable>
 
 
@@ -66,17 +68,25 @@ export default function NewPost({navigation}) {
             <TextInput style={styles.mediumText}
             onChangeText={onChangeDetails}
             value={detailsText}
-            multiline={true}/>       
+            //multiline={true}
+            placeholder="Elaborate as you'd like..."
+            placeholderTextColor={themes.colors.darkGrey}/>       
         </Pressable>
 
 
         
 
       </View>
-
-        <Pressable style={styles.postButton} onPress={() => {navigation.navigate("my-daha", { origin: [itemText, detailsText] })}}>
+      <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [itemText, detailsText] })}}>
+        <Image
+            source={Icons.post_button.orange}
+            style={styles.myDahaPhoto}>
+        </Image>
+      </Pressable>
+            
+        {/* <Pressable style={styles.postButton} onPress={() => {navigation.navigate("my-daha", { origin: [itemText, detailsText] })}}>
             <Text style={styles.postButtonText}>Post →</Text>
-        </Pressable>
+        </Pressable> */}
 
 
 
@@ -119,6 +129,7 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     paddingBottom: '5%',
     justifyContent: 'space-between',
+    fontFamily: 'Raleway'
 },
    itemInfo: {
     width: '100%',
@@ -137,17 +148,19 @@ const styles = StyleSheet.create({
 
   },
   titleText: {
-    //fontFamily: 'Racing-Sans-One',
+    fontFamily: 'RacingSansOne',
     color: themes.colors.orange,
     fontSize: 48,
     textAlign: "center",
     //paddingTop: "20%",
   },
   mediumText: {
-    color: themes.colors.darkGrey,
+    color: themes.colors.orange,
     fontSize: 17,
     textAlign: 'left',
     width: '100%',
+    fontFamily: 'Raleway',
+
 },
 postButton: {
     height: '5%',
@@ -164,6 +177,11 @@ postButton: {
     fontSize: 22,
     paddingLeft: '10%',
     paddingRight: '10%',
+  },
+  postButtonImage: {
+    justifyContent: 'flex-end',
+    flexDirection: 'row',
+    marginLeft: '50%'
   },
 
 });
