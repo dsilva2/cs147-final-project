@@ -2,20 +2,13 @@ import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
+import { supabase } from '../../supabase/supabase';
 
 
-
-// This is an example of destructuring props
-// We can also take in the props as an object like so:
-// const Comment = (props) =>
-// and the props object will look like 
-// props = {
-//   commentUser: "Text",
-//   timeStamp: "Text",
-//   commentText: "Text"
-// }
-const MyDaha = ({ navigation, route, isLookingFor, size, color, occasion, needsBy, returnBy, details, status }) => {
+const MyDaha = ({ navigation, route}) => {
   const { origin } = route.params;
+  const { data, error } = supabase.from("postInfo").select("name")
+  console.log(data, "AHHHHHHH:")
 
   return (
     

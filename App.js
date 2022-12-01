@@ -19,8 +19,8 @@ const Stack = createStackNavigator();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    RacingSansOne: require('./assets/fonts/Racing_Sans_One/RacingSansOne-Regular.ttf'),
-    Raleway: require('./assets/fonts/Raleway/static/Raleway-Regular.ttf'),
+    RacingSansOne: require('./assets/Fonts/Racing_Sans_One/RacingSansOne-Regular.ttf'),
+    Raleway: require('./assets/Fonts/Raleway/static/Raleway-Regular.ttf'),
   });
   if (!fontsLoaded) return <AppLoading />;
 
