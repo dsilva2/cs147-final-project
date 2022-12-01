@@ -23,6 +23,9 @@ export default function App() {
     Raleway: require('./assets/fonts/Raleway/static/Raleway-Regular.ttf'),
   });
   if (!fontsLoaded) return <AppLoading />;
+
+
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>

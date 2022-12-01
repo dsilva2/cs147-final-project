@@ -5,12 +5,43 @@ import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import FeedList from './FeedList';
 
 
-export default function HomeScreen({navigation}) {
+
+export default function HomeScreen({navigation, feed}) {
+    const sampleFeed = [
+        {
+          postCreatorName: "Calvin Laughlin",
+          itemNeeded: "banana costume",
+          dateNeededBy: "friday @ 5:00pm",
+        }, 
+        {
+          postCreatorName: "Olivia Wang", 
+          itemNeeded: "blue hat",
+          dateNeededBy: "thursday @ 10:00am"
+        }, 
+        {
+          postCreatorName: "Ava Deconcini",
+          itemNeeded: "Sweater Vest", 
+          dateNeededBy: "Tuesday @ 4:30pm"
+        },
+        {
+          postCreatorName: "Christian Pulisic",
+          itemNeeded: "Fur Coat", 
+          dateNeededBy: "Wednesday @ 10:30am",
+        }, 
+        {
+          postCreatorName: "Irene Au", 
+          itemNeeded: "Braun Watch", 
+          dateNeededBy: "Wednesday @ 3:20pm",
+        }
+      ]
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>daha</Text>
+
+      <FeedList feed={sampleFeed}/>
  
       <View style={styles.homeBar}>
         <Image
