@@ -20,7 +20,7 @@ export default {
         dark: require('./profile_button_dark.png'),
     },
     drew_photo: {
-        dope: require('./drew_picture.png')
+        pic: require('./drew_picture.png')
     },
     post_options: {
         edit: require('./edit_post.png'),

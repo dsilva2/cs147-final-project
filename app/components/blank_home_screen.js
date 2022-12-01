@@ -14,34 +14,47 @@ export default function HomeScreen({navigation, feed}) {
         {
           postCreatorName: "Calvin Laughlin",
           itemNeeded: "banana costume",
+          sizeNeeded: 'large',
+          colorNeeded: 'yellow',
+          occasionNeeded: 'party',
           dateNeededBy: "friday @ 5:00pm",
+          dateReturnedBy: 'saturday @ noon',
+          details: 'please help',
+          returnDate: "saturday @ noon",
         }, 
         {
           postCreatorName: "Olivia Wang", 
           itemNeeded: "blue hat",
-          dateNeededBy: "thursday @ 10:00am"
+          dateNeededBy: "thursday @ 10:00am",
+          returnDate: "saturday @ noon",
+          dateReturnedBy: 'saturday @ noon',
         }, 
         {
           postCreatorName: "Ava Deconcini",
           itemNeeded: "Sweater Vest", 
-          dateNeededBy: "Tuesday @ 4:30pm"
+          dateNeededBy: "Tuesday @ 4:30pm",
+          returnDate: "saturday @ noon",
+          dateReturnedBy: 'saturday @ noon',
         },
         {
           postCreatorName: "Christian Pulisic",
           itemNeeded: "Fur Coat", 
           dateNeededBy: "Wednesday @ 10:30am",
+          returnDate: "saturday @ noon",
+          dateReturnedBy: 'saturday @ noon',
         }, 
         {
           postCreatorName: "Irene Au", 
           itemNeeded: "Braun Watch", 
           dateNeededBy: "Wednesday @ 3:20pm",
+          dateReturnedBy: 'saturday @ noon',
         }
       ]
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>daha</Text>
 
-      <FeedList feed={sampleFeed}/>
+        <FeedList feed={sampleFeed}/>
  
       <View style={styles.homeBar}>
         <Image

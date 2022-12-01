@@ -20,18 +20,18 @@ const MyDaha = ({ navigation, route, isLookingFor, size, color, occasion, needsB
   return (
     
     <View style={styles.container}>
-      <Pressable onPress={() => {navigation.navigate("new-post")}}>
+      <Pressable onPress={() => {navigation.navigate("home-screen")}}>
         <Text style={styles.xText}>✕</Text>
       </Pressable>
 
         <View style={styles.dahaPhoto}>
             <Image
-            source={Icons.drew_photo.dope}
+            source={Icons.drew_photo.pic}
             style={styles.myDahaPhoto}>
             </Image>
         </View>
         <View style={styles.dahaPhoto}>
-            <Text style={styles.nameText}>Drew Silva</Text>
+            <Text style={styles.nameText}>{origin[0]}</Text>
         </View>
 
 
@@ -40,49 +40,49 @@ const MyDaha = ({ navigation, route, isLookingFor, size, color, occasion, needsB
         <View style={styles.name}>
           <Text style={styles.textInfo}>is looking for</Text>
         </View>
-        <Text style={styles.itemInfo}>{origin[0]}</Text>
+        <Text style={styles.itemInfo}>{origin[1]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Size</Text>
         </View>
-        <Text style={styles.itemInfo}>{size}</Text>
+        <Text style={styles.itemInfo}>{origin[2]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Color</Text>
         </View>
-        <Text style={styles.itemInfo}>{color}</Text>
+        <Text style={styles.itemInfo}>{origin[3]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Occasion</Text>
         </View>
-        <Text style={styles.itemInfo}>{occasion}</Text>
+        <Text style={styles.itemInfo}>{origin[4]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Needs by</Text>
         </View>
-        <Text style={styles.itemInfo}>{needsBy}</Text>
+        <Text style={styles.itemInfo}>{origin[5]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Return by</Text>
         </View>
-        <Text style={styles.itemInfo}>{returnBy}</Text>
+        <Text style={styles.itemInfo}>{origin[6]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>Details</Text>
         </View>
-        <Text style={styles.itemInfo}>{origin[1]}</Text>
+        <Text style={styles.itemInfo}>{origin[7]}</Text>
       </View>
 
       <View style={styles.header}>
@@ -95,10 +95,12 @@ const MyDaha = ({ navigation, route, isLookingFor, size, color, occasion, needsB
     </View>
 
     <View style={styles.bottomIcons}>
-            <Image
-            source={Icons.post_options.edit}
-            style={styles.changePost}>
-            </Image>
+      <Pressable onPress={() => {navigation.navigate("new-post")}}>
+        <Image
+          source={Icons.post_options.edit}
+          style={styles.changePost}>
+        </Image>
+      </Pressable>
 
             <Image
             source={Icons.post_options.delete}

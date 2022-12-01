@@ -2,24 +2,29 @@ import { StyleSheet, Text, View, Image, Pressable, SafeAreaView } from 'react-na
 import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import themes from '../../assets/Themes/themes';
+import { useNavigation } from '@react-navigation/native';
+
 
  
 
-export default function FeedItem({navigation, postCreatorName, itemNeeded, dateNeededBy}){
+export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details}){
 
 
-    const pressedGotcha = () => {
-        console.log(`Gotcha, ${postCreatorName}!`);
-    }
+    // const pressedGotcha = () => {
+    //     console.log(`Gotcha, ${postCreatorName}!`);
+    //     console.log({navigation})
+
+    // }
+    const navigation = useNavigation();
 
     return(
         <SafeAreaView>
         <Pressable style={styles.container}>
             <View style={styles.profileImageView}>
-                <Image source={require("../../assets/Icons/drew_picture.png")} style={styles.profileImage}></Image>
+                <Image source={require("../../assets/Icons/calvin.jpg")} style={styles.profileImage}></Image>
             </View>
 
-            <View style={styles.postInfoView}>
+            <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details] })}}>
                 <Text style={styles.nameText}>{postCreatorName}</Text>
                 
                 <Text style={styles.itemDescriptionText}>needs a {itemNeeded}</Text>
@@ -36,14 +41,14 @@ export default function FeedItem({navigation, postCreatorName, itemNeeded, dateN
                         <AntDesign name="hearto" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
 
-                    <Pressable style={styles.gotchaButton} onPress={pressedGotcha}>
+                    <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}>
                         <Text style={styles.gotchaText}>Gotcha!</Text>
 
                     </Pressable>
 
                 </View>
 
-            </View>
+            </Pressable>
             
         </Pressable>
 

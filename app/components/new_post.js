@@ -17,14 +17,22 @@ var detailsBlank = "Elaborate as you'd like..."
 
 export default function NewPost({navigation}) {
     const [itemText, onChangeItem] = useState('');
+    const [sizeText, onChangeSize] = useState('');
+    const [colorText, onChangeColor] = useState('');
+    const [occasionText, onChangeOccasion] = useState('');
     const [detailsText, onChangeDetails] = useState('');
+    const postCreatorName = 'Default Name'
   return (
     <View style={styles.container}>
-        <Pressable onPress={() => {navigation.navigate("home-screen")}}>
-            <Text style={styles.xText}>✕</Text>
-        </Pressable>
-        <Text style={styles.titleText}>daha</Text>
       <View style={styles.info}>
+
+            <View style={styles.topBar}>
+                <Text style={styles.titleText}>daha</Text>
+                <Pressable onPress={() => {navigation.navigate("home-screen")}}>
+                    <Text style={styles.xText}>✕</Text>
+                </Pressable>
+            </View>
+
         <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Item*</Text>
 
@@ -38,28 +46,47 @@ export default function NewPost({navigation}) {
 
 
 
-        <Pressable style={styles.textWithArrowBorder}>
+        <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Size</Text>
-            <Text style={styles.largeText}>→</Text>
+
+            <TextInput style={styles.mediumText}
+                onChangeText={onChangeSize}
+                value={sizeText}
+                placeholder="Any size, 9.5, 27x33, ..."
+                placeholderTextColor={themes.colors.grey}
+            />
         </Pressable>
 
-        <Pressable style={styles.textWithArrow}>
+
+        <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Color</Text>
-            <Text style={styles.largeText}>→</Text>
+
+            <TextInput style={styles.mediumText}
+                onChangeText={onChangeColor}
+                value={colorText}
+                placeholder="Any color, navy blue, tie-dye..."
+                placeholderTextColor={themes.colors.grey}
+            />
         </Pressable>
 
-        <Pressable style={styles.textWithArrow}>
+        <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Occasion</Text>
-            <Text style={styles.largeText}>→</Text>
+
+            <TextInput style={styles.mediumText}
+                onChangeText={onChangeOccasion}
+                value={occasionText}
+                placeholder="Any color, navy blue, tie-dye..."
+                placeholderTextColor={themes.colors.grey}
+            />
         </Pressable>
 
         <Pressable style={styles.textWithArrowBorder}>
-            <Text style={styles.largeText}>Need by</Text>
+            <Text style={styles.largeText}>Need by*</Text>
             <Text style={styles.largeText}>→</Text>
         </Pressable>
 
         <Pressable style={styles.textWithArrow}>
-            <Text style={styles.largeText}>Return by</Text>
+            <Text style={styles.largeText}>Return by*</Text>
             <Text style={styles.largeText}>→</Text>
         </Pressable>
 
@@ -77,7 +104,7 @@ export default function NewPost({navigation}) {
         
 
       </View>
-      <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [itemText, detailsText] })}}>
+      <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, detailsText] })}}>
         <Image
             source={Icons.post_button.orange}
             style={styles.myDahaPhoto}>
@@ -105,7 +132,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: "100%",
     height: '100%',
-    paddingTop: '20%',
+    paddingTop: '10%',
   },
   xText: {
     color: themes.colors.grey,
@@ -114,6 +141,13 @@ const styles = StyleSheet.create({
     marginLeft: '85%',
     marginRight: '5%'
   },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    //width: '85%',
+    paddingRight: '25%',
+    alignItems: 'center'
+  },
   textWithArrow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -121,7 +155,7 @@ const styles = StyleSheet.create({
   textWithArrowBorder: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginTop: '10%'
+    marginTop: '20%'
   },
   largeText: {
     color: themes.colors.black,
@@ -143,8 +177,8 @@ const styles = StyleSheet.create({
   },
   itemDescription: {
     width: '85%',
-    paddingBottom: '10%',
-    paddingTop: '10%',
+    //paddingBottom: '5%',
+    paddingTop: '5%',
 
   },
   titleText: {
@@ -181,7 +215,8 @@ postButton: {
   postButtonImage: {
     justifyContent: 'flex-end',
     flexDirection: 'row',
-    marginLeft: '50%'
+    marginLeft: '50%',
+    marginTop: '10%'
   },
 
 });

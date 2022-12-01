@@ -9,7 +9,12 @@ export default function FeedList ({feed, navigation}) {
         return <FeedItem 
         postCreatorName={item.postCreatorName}
         itemNeeded={item.itemNeeded}
+        sizeNeeded={item.sizeNeeded}
+        colorNeeded={item.colorNeeded}
+        occasionNeeded={item.occasionNeeded}
         dateNeededBy={item.dateNeededBy}
+        dateReturnedBy={item.dateReturnedBy}
+        details={item.details}
         />
     }
 
