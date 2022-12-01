@@ -11,8 +11,10 @@
   "dependencies": {
     "@react-navigation/native": "^6.0.16",
     "@react-navigation/stack": "^6.3.7",
+    "@supabase/supabase-js": "^2.1.1",
     "expo": "~47.0.8",
     "expo-app-loading": "~2.1.1",
+    "expo-font": "~11.0.1",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
     "react": "18.1.0",
@@ -23,7 +25,8 @@
     "react-navigation-stack": "^2.10.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "file-loader": "^6.2.0"
   },
   "private": true,
   "rnpm": {

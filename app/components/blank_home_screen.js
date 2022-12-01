@@ -10,6 +10,9 @@ import FeedList from './FeedList';
 
 
 export default function HomeScreen({navigation, feed}) {
+
+  let supabaseFeed;
+
     const sampleFeed = [
         {
           postCreatorName: "Calvin Laughlin",

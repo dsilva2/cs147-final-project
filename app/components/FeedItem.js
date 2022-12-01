@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
         color: themes.colors.black,
 
     },
+    
     itemDescriptionText: {
         marginLeft: '2.5%',
         fontSize: themes.fontSizes.mediumBody,
@@ -133,14 +134,16 @@ const styles = StyleSheet.create({
     gotchaButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft: '25%',
+        marginLeft: '20%',
         width: '30%',
         backgroundColor: themes.colors.orange,
         borderRadius: 99999,
+       
     }, 
 
     gotchaText: {
         color: 'white',
+        fontFamily: "RacingSansOne"
     }
 
 
