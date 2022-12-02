@@ -3,7 +3,7 @@ import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
 import { supabase } from '../../supabase/supabase';
-import { useState, useEffect }from "react"
+import { useState, useEffect } from "react"
 
 
 
