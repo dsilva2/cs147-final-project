@@ -12,10 +12,7 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
 
-
-
 const Stack = createStackNavigator();
-
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -23,9 +20,6 @@ export default function App() {
     Raleway: require('./assets/Fonts/Raleway/static/Raleway-Regular.ttf'),
   });
   if (!fontsLoaded) return <AppLoading />;
-
-
-
   
 
 

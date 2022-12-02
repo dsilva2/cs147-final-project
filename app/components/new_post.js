@@ -14,14 +14,45 @@ var detailsBlank = "Elaborate as you'd like..."
 
 
 
+// const onPressPost = ({postCreatorName, itemText, sizeText, colorText, occasionText, detailsText}) => {
+//   navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, detailsText] })
+// }
 
-export default function NewPost({navigation}) {
+
+export default function NewPost({navigation, sampleFeed, setFeed}) {
     const [itemText, onChangeItem] = useState('');
     const [sizeText, onChangeSize] = useState('');
     const [colorText, onChangeColor] = useState('');
     const [occasionText, onChangeOccasion] = useState('');
     const [detailsText, onChangeDetails] = useState('');
-    const postCreatorName = 'Default Name'
+    const [needByText, onChangeNeedBy] = useState('');
+    const [returnByText, onChangeReturnBy] = useState('');
+    const postCreatorName = "You"
+
+    // postCreatorName: "Calvin Laughlin",
+    //   itemNeeded: "banana costume",
+    //   sizeNeeded: 'large',
+    //   colorNeeded: 'yellow',
+    //   occasionNeeded: 'party',
+    //   dateNeededBy: "friday @ 5:00pm",
+    //   dateReturnedBy: 'saturday @ noon',
+    //   details: 'please help',
+    //   returnDate: "saturday @ noon",
+
+    let newPostObj = {
+      postCreatorName: postCreatorName,
+      itemNeeded: itemText, 
+      sizeNeeded: sizeText,
+      colorNeeded: colorText, 
+      occasionNeeded: occasionText,
+      dateNeededBy: "Some Sample Date",
+      dateReturnedBy: "Some Other Sample Day",
+      details: detailsText,
+      returnDate: "Some Return Day", 
+    }
+
+    // console.log(item)
+    
   return (
     <View style={styles.container}>
       <View style={styles.info}>
@@ -31,7 +62,7 @@ export default function NewPost({navigation}) {
                 <Pressable onPress={() => {navigation.navigate("home-screen")}}>
                     <Text style={styles.xText}>✕</Text>
                 </Pressable>
-            </View>
+            </View> 
 
         <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Item*</Text>
@@ -43,8 +74,6 @@ export default function NewPost({navigation}) {
                 placeholderTextColor={themes.colors.grey}
             />
         </Pressable>
-
-
 
         <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Size</Text>
@@ -74,19 +103,31 @@ export default function NewPost({navigation}) {
             <TextInput style={styles.mediumText}
                 onChangeText={onChangeOccasion}
                 value={occasionText}
-                placeholder="Any color, navy blue, tie-dye..."
+                placeholder="Date, dance, class..."
                 placeholderTextColor={themes.colors.grey}
             />
         </Pressable>
 
-        <Pressable style={styles.textWithArrowBorder}>
-            <Text style={styles.largeText}>Need by*</Text>
-            <Text style={styles.largeText}>→</Text>
+        <Pressable style={styles.itemDescription}>
+            <Text style={styles.largeText}>Need by*</Text> 
+            <TextInput style={styles.mediumText}
+                onChangeText={onChangeNeedBy}
+                value={needByText}
+                placeholder="tomorrow @ 7pm, asap..."
+                placeholderTextColor={themes.colors.grey}
+            />
+            {/* <Text style={styles.largeText}>→</Text> */}
         </Pressable>
 
-        <Pressable style={styles.textWithArrow}>
+        <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Return by*</Text>
-            <Text style={styles.largeText}>→</Text>
+            <TextInput style={styles.mediumText}
+                onChangeText={onChangeReturnBy}
+                value={returnByText}
+                placeholder="thursday @ 2pm..."
+                placeholderTextColor={themes.colors.grey}
+            />
+            {/* <Text style={styles.largeText}>→</Text> */}
         </Pressable>
 
         <Pressable style={styles.itemDescription}>
@@ -99,11 +140,14 @@ export default function NewPost({navigation}) {
             placeholderTextColor={themes.colors.grey}/>       
         </Pressable>
 
+    
 
         
 
       </View>
-      <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, detailsText] })}}>
+      {/* <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, detailsText] }); setFeed([...sampleFeed, {name: postCreatorName, item: itemText, size: sizeText, color: colorText,}])}}> */}
+      <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, needByText, returnByText, detailsText], makingNewPost: true })}}>
+
         <Image
             source={Icons.post_button.orange}
             style={styles.myDahaPhoto}>

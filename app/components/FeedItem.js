@@ -17,17 +17,69 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
     // }
     const navigation = useNavigation();
 
+    let needOrNeeds = "needs"; 
+    if (postCreatorName === "You"){
+        needOrNeeds = "need";
+    }
+
+    // let str = `../../assets/Icons/${name}.jpg`
+
+    let str = "../../assets/Icons/dan.jpg"; 
+
+    let image; 
+
+    if (postCreatorName == "Lily Bailey"){
+        image = <Image source={require("../../assets/Icons/lily.jpg")} style={styles.profileImage}></Image>
+    } else if ((postCreatorName == "Calvin Laughlin")){
+        image = <Image source={require("../../assets/Icons/calvin.jpg")} style={styles.profileImage}></Image>
+    } else if (postCreatorName == "Dan Healy"){
+        image = <Image source={require("../../assets/Icons/dan.jpg")} style={styles.profileImage}></Image>
+    } else if (postCreatorName == "Benjamin Zaidel"){
+        image = image = <Image source={require("../../assets/Icons/benjamin.jpg")} style={styles.profileImage}></Image>
+    } else if (postCreatorName == "Irene Au"){
+        image = image = <Image source={require("../../assets/Icons/irene.jpg")} style={styles.profileImage}></Image>
+    } else if (postCreatorName == "You"){
+        image = image = <Image source={require("../../assets/Icons/james.jpg")} style={styles.profileImage}></Image>
+
+    }
+
+
+
+    let gotchaButton = <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}><Text style={styles.gotchaText}>Gotcha!</Text></Pressable>
+    
+    if (postCreatorName == "You"){
+        gotchaButton = <Pressable style={styles.gotchaButtonYou}></Pressable>
+    }
+
+
+    // if (postCreatorName == "Calvin Laughlin") str = "../../assets/Icons/calvin.jpg"
+    // if (postCreatorName == "Irene Au") str = "../../assets/Icons/irene.jpg"
+    // if (postCreatorName == "Dan Healy") str = "../../assets/Icons/dan.jpg"
+    // if (postCreatorName == "Benjamin Zaidel") str = "../../assets/Icons/benjamin.jpg"
+
+    let name = "Calvin Laughlin"
+
+    console.log(str)
+
+
+
+    // let imageString = `../../assest/ProfileImages/${postCreatorName}.jpg`
+    // console.log(imageString)
+
     return(
         <SafeAreaView>
         <Pressable style={styles.container}>
             <View style={styles.profileImageView}>
-                <Image source={require("../../assets/Icons/calvin.jpg")} style={styles.profileImage}></Image>
+                {/* <Image source={require(str)} style={styles.profileImage}></Image> */}
+                {image}
             </View>
 
-            <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details] })}}>
+            {/* <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details] })}}> */}
+            <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details], makingNewPost: false })}}>
+
                 <Text style={styles.nameText}>{postCreatorName}</Text>
                 
-                <Text style={styles.itemDescriptionText}>needs a {itemNeeded}</Text>
+                <Text style={styles.itemDescriptionText}>{needOrNeeds} a {itemNeeded}</Text>
                 <Text style={styles.needByText}>by {dateNeededBy}</Text>
 
                 <View style={styles.postInfoButtonsView}>
@@ -41,10 +93,11 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
                         <AntDesign name="hearto" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
 
-                    <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}>
+                    {/* <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}>
                         <Text style={styles.gotchaText}>Gotcha!</Text>
 
-                    </Pressable>
+                    </Pressable> */}
+                    {gotchaButton}
 
                 </View>
 
@@ -144,6 +197,16 @@ const styles = StyleSheet.create({
     gotchaText: {
         color: 'white',
         fontFamily: "RacingSansOne"
+    }, 
+    
+    gotchaButtonYou: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: '20%',
+        width: '30%',
+        backgroundColor: themes.colors.white,
+        borderRadius: 99999,
+
     }
 
 
