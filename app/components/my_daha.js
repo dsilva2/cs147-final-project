@@ -3,17 +3,31 @@ import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
 import { supabase } from '../../supabase/supabase';
+import { useState, useEffect }from "react"
+
 
 
 const MyDaha = ({ navigation, route}) => {
+  const [data, setData] = useState()
   const { origin } = route.params;
-  const { data, error } = supabase.from("postInfo").select("name")
-  console.log(data, "AHHHHHHH:")
+  //const {data, error} = supabase.from('postInfo').select("*").then((res) => console.log(res))
 
+  async function getData() {
+    const {data, error} = await supabase.from('postInfo').select("*")
+    if (data) {
+      setData(data)
+    }
+  }
+
+  useEffect(() => {
+    getData()
+  }, [])
+
+  console.log(data)
   return (
     
     <View style={styles.container}>
-      <Pressable onPress={() => {navigation.navigate("home-screen")}}>
+      <Pressable onPress={() => {navigation.navigate("temp-screen")}}>
         <Text style={styles.xText}>✕</Text>
       </Pressable>
 
