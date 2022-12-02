@@ -22,12 +22,57 @@ const MyDaha = ({ navigation, route}) => {
   useEffect(() => {
     getData()
   }, [])
-
   console.log(data)
+  const sampleFeed = [
+    {
+      postCreatorName: "Calvin Laughlin",
+      itemNeeded: "banana costume",
+      sizeNeeded: 'large',
+      colorNeeded: 'yellow',
+      occasionNeeded: 'party',
+      dateNeededBy: "friday @ 5:00pm",
+      dateReturnedBy: 'saturday @ noon',
+      details: 'please help',
+      returnDate: "saturday @ noon",
+    }, 
+    {
+      postCreatorName: "Olivia Wang", 
+      itemNeeded: "blue hat",
+      dateNeededBy: "thursday @ 10:00am",
+      returnDate: "saturday @ noon",
+      dateReturnedBy: 'saturday @ noon',
+    }, 
+    {
+      postCreatorName: "Ava Deconcini",
+      itemNeeded: "Sweater Vest", 
+      dateNeededBy: "Tuesday @ 4:30pm",
+      returnDate: "saturday @ noon",
+      dateReturnedBy: 'saturday @ noon',
+    },
+    {
+      postCreatorName: "Christian Pulisic",
+      itemNeeded: "Fur Coat", 
+      dateNeededBy: "Wednesday @ 10:30am",
+      returnDate: "saturday @ noon",
+      dateReturnedBy: 'saturday @ noon',
+    }, 
+    {
+      postCreatorName: "Irene Au", 
+      itemNeeded: "Braun Watch", 
+      dateNeededBy: "Wednesday @ 3:20pm",
+      dateReturnedBy: 'saturday @ noon',
+    }
+  ]
+  // for (let i = 0; i < data.length; i++) {
+  //   console.log(data[i].name, data[i].size, data[i].item)
+  //   sampleFeed.push({postCreatorName: "Eli Waldman", itemNeeded: "Cape Cod sweatshirt", dateNeededBy: "Now", dateReturnedBy: 'tmo'})
+  // }
+  // console.log(sampleFeed)
+
   return (
     
     <View style={styles.container}>
-      <Pressable onPress={() => {navigation.navigate("temp-screen")}}>
+      <Pressable onPress={() => {navigation.navigate("home-screen")}}>
         <Text style={styles.xText}>✕</Text>
       </Pressable>
 
