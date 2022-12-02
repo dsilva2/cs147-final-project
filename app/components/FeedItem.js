@@ -45,7 +45,7 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
 
 
 
-    let gotchaButton = <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}><Text style={styles.gotchaText}>Gotcha!</Text></Pressable>
+    let gotchaButton = <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}><Text style={styles.gotchaText}>GOTCHU!</Text></Pressable>
     
     if (postCreatorName == "You"){
         gotchaButton = <Pressable style={styles.gotchaButtonYou}></Pressable>
