@@ -57,7 +57,6 @@ export default function NewPost({navigation}) {
             />
         </Pressable>
 
-
         <Pressable style={styles.itemDescription}>
             <Text style={styles.largeText}>Color</Text>
 

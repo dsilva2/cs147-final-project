@@ -6,12 +6,40 @@ import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FeedList from './FeedList';
-
-
+import { SupabaseClient } from '@supabase/supabase-js';
+import React, { useState, useEffect } from 'react';
+import { supabase } from '../../supabase/supabase';
 
 export default function HomeScreen({navigation, feed}) {
 
-  let supabaseFeed;
+  const getData = async () => {
+    let { data: postInfo, error } = await supabase
+    .from('postInfo')
+    .select('*')
+
+    return data; 
+  }
+
+  console.log("HELLO")
+  let testFeed = getData();
+  // console.log(testFeed[0])
+  const {data, error} = supabase.from("postInfo").select("*")
+
+
+  // const getFeed = async () => {
+  //   let { data: postInfo, error } = await supabase
+  //   .from('postInfo')
+  //   .select('*')
+
+  //   return data; 
+  // }
+
+  // useEffect(() => {
+  //   getFeed()
+  //   .then((data) => {
+  //     console.log("data", data);
+  //   })
+  // })
 
     const sampleFeed = [
         {
