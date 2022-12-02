@@ -33,7 +33,7 @@
   "private": true,
   "rnpm": {
     "assets": [
-      "./assets/fonts/"
+      "./assets/Fonts/"
     ]
   }
 }
