@@ -9,12 +9,6 @@ import { useNavigation } from '@react-navigation/native';
 
 export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details}){
 
-
-    // const pressedGotcha = () => {
-    //     console.log(`Gotcha, ${postCreatorName}!`);
-    //     console.log({navigation})
-
-    // }
     const navigation = useNavigation();
 
     let needOrNeeds = "needs"; 
@@ -46,9 +40,12 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
 
 
     let gotchaButton = <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}><Text style={styles.gotchaText}>GOTCHU!</Text></Pressable>
-    
+    let postCreatorNameText = <Text style={styles.nameText}>{postCreatorName}</Text>
+
     if (postCreatorName == "You"){
         gotchaButton = <Pressable style={styles.gotchaButtonYou}></Pressable>
+        postCreatorNameText = <Text style={styles.nameTextYou}>{postCreatorName}</Text>
+
     }
 
 
@@ -77,7 +74,8 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
             {/* <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details] })}}> */}
             <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details], makingNewPost: false })}}>
 
-                <Text style={styles.nameText}>{postCreatorName}</Text>
+                {/* <Text style={styles.nameText}>{postCreatorName}</Text> */}
+                {postCreatorNameText}
                 
                 <Text style={styles.itemDescriptionText}>{needOrNeeds} a {itemNeeded}</Text>
                 <Text style={styles.needByText}>by {dateNeededBy}</Text>
@@ -165,6 +163,14 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
         color: themes.colors.black,
+
+    },
+
+    nameTextYou: {
+        marginTop: "5%",
+        marginLeft: '2.5%', 
+        fontSize: themes.fontSizes.subtitle,
+        color: themes.colors.orange,
 
     },
     
