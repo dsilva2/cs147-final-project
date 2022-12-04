@@ -81,7 +81,7 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
                 <Text style={styles.needByText}>by {dateNeededBy}</Text>
 
                 <View style={styles.postInfoButtonsView}>
-                    <Pressable style={styles.infoButton}>
+                    <Pressable style={styles.leftmostInfoButton}>
                         <Ionicons name="chatbubble-outline" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
                     <Pressable style={styles.infoButton}>
@@ -107,13 +107,12 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
 
     )
 
-    
-
 
 }
 
 const styles = StyleSheet.create({
     container: {
+        
 
         backgroundColor: themes.colors.white,
         // backgroundColor: 'blue',
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         display: 'flex',
         // height: '15%',
-        height: 125,
+        height: 160,
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -136,7 +135,6 @@ const styles = StyleSheet.create({
         width: '33%',
         justifyContent: 'center',
         alignItems: 'center',
-        
     }, 
     profileImage:{
     
@@ -145,28 +143,31 @@ const styles = StyleSheet.create({
         aspectRatio: 1,
         borderRadius: '50%',
         marginLeft: '20%',
+        marginBottom: "35%"
     },
 
     postInfoView: {
         justifyContent: 'space-between',
+        
     },
 
     postInfoButtonsView: {
         flexDirection: 'row',
         // backgroundColor: 'yellow',
-        marginBottom: '2.5%',
+        // marginBottom: '2.5%',
+        marginTop: "2.5%"
     }, 
     
     nameText:{
-        // marginBottom: '5%',
+        // marginBottom: '2.5%',
         marginTop: "5%",
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
         color: themes.colors.black,
-
     },
 
     nameTextYou: {
+        // marginBottom: '2.5%',
         marginTop: "5%",
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
@@ -178,22 +179,30 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%',
         fontSize: themes.fontSizes.mediumBody,
         color: themes.colors.black,
+        // marginBottom: '2.5%'
+        // marginTop: "1%"
+        marginTop: "2.5%"
     },
     needByText: {
         marginLeft: '2.5%',
-        marginBottom: '2.5%',
+        // marginBottom: '2.5%',
+        marginTop: "5%",
         fontSize: themes.fontSizes.smallBody, 
         color: themes.colors.grey,
     },
 
-    infoButton: {
+    leftmostInfoButton: {
         marginLeft: '2.5%',
+    }, 
+
+    infoButton: {
+        marginLeft: '6%',
     }, 
 
     gotchaButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft: '20%',
+        marginLeft: '16.5%',
         width: '30%',
         backgroundColor: themes.colors.orange,
         borderRadius: 99999,
