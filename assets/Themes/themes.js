@@ -3,8 +3,8 @@ export default Themes = {
     colors: {
         white: '#FCF5E5',
         orange: '#E65D00',
-        black: '#565050',
-        grey: '#A1A0A0',
+        black: '#272626',
+        grey: '#736D6D',
         darkGrey: '#A8A8A8',
     },
     fontSizes: {

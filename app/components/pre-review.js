@@ -6,21 +6,13 @@ import { supabase } from '../../supabase/supabase';
 import { useState, useEffect } from "react"
 import NewPost from './new_post';
 
-// ORIGIN ARRAY IS SET UP 
-// origin[0]: postCreatorName
-// origin[1]: itemText
-// origin[2]: sizeText
-// origin[3]: colorText
-// origin[4]: occasionText
-// origin[5]: needByText
-// origin[6]: returnByText
-// origin[5]: detailsText
 
 
-const MyDaha = ({ navigation, route}) => {
+const PreReview = ({ navigation, route}) => {
   const [data, setData] = useState()
   const { origin } = route.params;
   const { makingNewPost } = route.params
+  console.log("PREREVIEW", origin)
 
 
 
@@ -59,61 +51,9 @@ const MyDaha = ({ navigation, route}) => {
   useEffect(() => {
     getData()
   }, [])
-  // console.log(data)
-  // const sampleFeed = [
-  //   {
-  //     postCreatorName: "Calvin Laughlin",
-  //     itemNeeded: "banana costume",
-  //     sizeNeeded: 'large',
-  //     colorNeeded: 'yellow',
-  //     occasionNeeded: 'party',
-  //     dateNeededBy: "friday @ 5:00pm",
-  //     dateReturnedBy: 'saturday @ noon',
-  //     details: 'please help',
-  //     returnDate: "saturday @ noon",
-  //   }, 
-  //   {
-  //     postCreatorName: "Olivia Wang", 
-  //     itemNeeded: "blue hat",
-  //     dateNeededBy: "thursday @ 10:00am",
-  //     returnDate: "saturday @ noon",
-  //     dateReturnedBy: 'saturday @ noon',
-  //   }, 
-  //   {
-  //     postCreatorName: "Ava Deconcini",
-  //     itemNeeded: "Sweater Vest", 
-  //     dateNeededBy: "Tuesday @ 4:30pm",
-  //     returnDate: "saturday @ noon",
-  //     dateReturnedBy: 'saturday @ noon',
-  //   },
-  //   {
-  //     postCreatorName: "Christian Pulisic",
-  //     itemNeeded: "Fur Coat", 
-  //     dateNeededBy: "Wednesday @ 10:30am",
-  //     returnDate: "saturday @ noon",
-  //     dateReturnedBy: 'saturday @ noon',
-  //   }, 
-  //   {
-  //     postCreatorName: "Irene Au", 
-  //     itemNeeded: "Braun Watch", 
-  //     dateNeededBy: "Wednesday @ 3:20pm",
-  //     dateReturnedBy: 'saturday @ noon',
-  //   }
-  // ]
-  // for (let i = 0; i < data.length; i++) {
-  //   console.log(data[i].name, data[i].size, data[i].item)
-  //   sampleFeed.push({postCreatorName: "Eli Waldman", itemNeeded: "Cape Cod sweatshirt", dateNeededBy: "Now", dateReturnedBy: 'tmo'})
-  // }
-  // console.log(sampleFeed)
 
   let areOrIs = "is"
   if (origin[0] == "You") areOrIs = "are"
-
-
-  //want this to redirect to message screen at some point
-  let bottomContent = <Pressable style = {styles.gotchuButton} onPress={() => {navigation.navigate("new-post")}}>
-        <Text style={styles.gotchuText}>GOTCHU</Text>
-      </Pressable>
 
 
   let image; 
@@ -130,52 +70,42 @@ const MyDaha = ({ navigation, route}) => {
         image = image = <Image source={require("../../assets/Icons/irene.jpg")} style={styles.myDahaPhoto}></Image>
     } else if (origin[0] == "You"){
       image = image = <Image source={require("../../assets/Icons/james.jpg")} style={styles.myDahaPhoto}></Image>
-      bottomContent = <View style={styles.bottomIcons}>
-        <Pressable onPress={() => {navigation.navigate("new-post")}}>
-          <Image
-            source={Icons.post_options.edit}
-            style={styles.changePost}>
-          </Image>
-        </Pressable>
-
-              <Image
-              source={Icons.post_options.delete}
-              style={styles.changePost}>
-              </Image>
-      </View>
     }
 
+    let ownImage = <Image source={require("../../assets/Icons/james.jpg")} style={styles.ownPhoto}></Image>
 
   return (
     
     <View style={styles.container}>
+        <View style={styles.topBar}>
+            <Text style={styles.topBarText}>
+                Recent Activity
+            </Text>
+            <Pressable onPress={() => {navigation.navigate("home-screen", {newObj: newPostObj})}}>
+                <Text style={styles.xText}>✕</Text>
+            </Pressable>
+        </View>
 
-      <Pressable onPress={() => {navigation.navigate("home-screen", {newObj: newPostObj})}}>
-        <Text style={styles.xText}>✕</Text>
-      </Pressable>
 
 
       <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: [origin[0]], image })}}>
         <View style={styles.dahaPhoto}>
-            {/* <Image
-            source={Icons.drew_photo.pic}
-            style={styles.myDahaPhoto}>
-            </Image> */}
+            {ownImage}
             {image}
         </View>
         <View style={styles.dahaPhoto}>
-            <Text style={styles.nameText}>{origin[0]}</Text>
+            <Text style={styles.borrowedText}>You borrowed a {origin[1]} from {origin[0]}</Text>
         </View>
       </Pressable>
 
 
     <View style={styles.myDahaInfo}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>{areOrIs} looking for</Text>
         </View>
         <Text style={styles.itemInfo}>{origin[1]}</Text>
-      </View>
+      </View> */}
 
       <View style={styles.header}>
         <View style={styles.name}>
@@ -200,14 +130,14 @@ const MyDaha = ({ navigation, route}) => {
 
       <View style={styles.header}>
         <View style={styles.name}>
-          <Text style={styles.textInfo}>Needs by</Text>
+          <Text style={styles.textInfo}>Needed by</Text>
         </View>
         <Text style={styles.itemInfo}>{origin[5]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
-          <Text style={styles.textInfo}>Return by</Text>
+          <Text style={styles.textInfo}>Returned by</Text>
         </View>
         <Text style={styles.itemInfo}>{origin[6]}</Text>
       </View>
@@ -223,18 +153,35 @@ const MyDaha = ({ navigation, route}) => {
         <View style={styles.name}>
           <Text style={styles.textInfo}>Status</Text>
         </View>
-        <Text style={styles.statusText}>Unfulfilled</Text>
+        <Text style={styles.statusText}>Fulfilled</Text>
         {/* <Text style={styles.statusText}>{status}</Text> */}
       </View>
     </View>
+    <Pressable 
+        style={styles.requestButton} 
+        onPress={() => {navigation.navigate("review", { userInfo: origin})}}>
+        <Text style={styles.writeReviewText}>Write a Review</Text>
+    </Pressable>
 
-    {bottomContent}
+    {/* <View style={styles.bottomIcons}>
+      <Pressable onPress={() => {navigation.navigate("new-post")}}>
+        <Image
+          source={Icons.post_options.edit}
+          style={styles.changePost}>
+        </Image>
+      </Pressable>
+
+            <Image
+            source={Icons.post_options.delete}
+            style={styles.changePost}>
+            </Image>
+    </View> */}
 
     </View>
   );
 };
 
-export default MyDaha;
+export default PreReview;
 
 const styles = StyleSheet.create({
   container: {
@@ -264,9 +211,16 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     borderRadius: 9999,
+    marginRight: '-10%',
+  },
+  ownPhoto: {
+    width: 128,
+    height: 128,
+    borderRadius: 9999,
+    marginTop: '10%'
   },
   dahaPhoto: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     justifyContent: 'center',
     paddingTop: '5%'
   },
@@ -322,23 +276,36 @@ const styles = StyleSheet.create({
     borderRadius: '50%',
     marginRight: 4,
   },
-  gotchuButton: {
+  requestButton: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: '60%',
-    marginLeft: '20%',
-    marginRight: '20%',
-    marginBottom: '10%',
-    marginTop: '5%',
+    width: '80%',
     paddingTop: '2.5%',
     paddingBottom: '2.5%',
     backgroundColor: themes.colors.orange,
-    borderRadius: 20,
-   
+    borderRadius: 99999, 
+    margin: '10%'
 }, 
-gotchuText: {
-  color: themes.colors.white,
-  fontFamily: 'RacingSansOne',
-  fontSize: themes.fontSizes.title
-}
+writeReviewText: {
+    fontSize: themes.fontSizes.largeBody,
+    fontFamily: 'Raleway',
+    color: themes.colors.white
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginLeft: '5%',
+    marginRight: '5%',
+  },
+  topBarText: {
+      fontSize: themes.fontSizes.title,
+      color: themes.colors.black,
+      fontFamily: 'Raleway'
+  },
+  borrowedText: {
+      fontSize: themes.fontSizes.subtitle,
+      color: themes.colors.black,
+      fontFamily: 'Raleway'
+  }
 });
