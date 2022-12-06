@@ -29,4 +29,8 @@ export default {
     post_button: {
         orange: require('./post_button_figma.png'),
     },
+    profile_photos: {
+        james: require('./james.jpg'),
+        calvin: require('./calvin.jpg')
+    },
 }
