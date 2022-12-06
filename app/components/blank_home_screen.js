@@ -21,7 +21,7 @@ export default function HomeScreen({navigation, route}) {
   let undefinedNewPost = false; 
   
 
-  // const { postToAddInfo } = route.params;
+  // const { postToAddInfo } = route.params; 
   const newObj  = route.params
 
 
@@ -138,10 +138,14 @@ export default function HomeScreen({navigation, route}) {
         style={styles.homeBarButton}>
         </Image>
 
-        <Image
-        source={Icons.search.light}
-        style={styles.homeBarButton}>
-        </Image>
+        <Pressable onPress={() => navigation.navigate("explore-page", {params: {someText: "This is some text"}})}> 
+          <Image
+          source={Icons.search.light}
+          style={styles.homeBarButton}>
+          </Image>
+        </Pressable>
+
+        
 
         <Pressable onPress={() => {navigation.navigate("new-post")}}>
             <Image

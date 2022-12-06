@@ -24,6 +24,8 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
 
     if (postCreatorName == "Lily Bailey"){
         image = <Image source={require("../../assets/Icons/lily.jpg")} style={styles.profileImage}></Image>
+    } else if (postCreatorName == "William Seymour"){
+        image = <Image source={require("../../assets/Icons/william.jpg")} style={styles.profileImage}></Image>
     } else if ((postCreatorName == "Calvin Laughlin")){
         image = <Image source={require("../../assets/Icons/calvin.jpg")} style={styles.profileImage}></Image>
     } else if (postCreatorName == "Dan Healy"){
@@ -112,7 +114,6 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
 
 const styles = StyleSheet.create({
     container: {
-        
 
         backgroundColor: themes.colors.white,
         // backgroundColor: 'blue',

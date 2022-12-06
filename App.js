@@ -10,7 +10,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
-
+import ExplorePage from './app/components/ExplorePage';
+import SuggestedFriendItem from './app/components/SuggestedFriendItem';
+import SuggestedFriendsList from './app/components/SuggestedFriendsList';
 
 const Stack = createStackNavigator();
 
@@ -24,14 +26,17 @@ export default function App() {
 
 
   return (
+
+    // <ExplorePage></ExplorePage>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="home-screen" component={HomeScreen} />
           <Stack.Screen name="new-post" component={NewPost} />
           <Stack.Screen name="my-daha" component={MyDaha} />
+          <Stack.Screen name="explore-page" component={ExplorePage} />
       </Stack.Navigator>
-            
-        </NavigationContainer>
+
+    </NavigationContainer>
   );
 }
 
