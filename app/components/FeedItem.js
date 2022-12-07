@@ -172,6 +172,7 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
         color: themes.colors.black,
+        fontFamily: 'Raleway',
     },
 
     nameTextYou: {
@@ -180,6 +181,8 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
         color: themes.colors.orange,
+        fontFamily: 'Raleway',
+        
 
     },
     
@@ -189,7 +192,8 @@ const styles = StyleSheet.create({
         color: themes.colors.black,
         // marginBottom: '2.5%'
         // marginTop: "1%"
-        marginTop: "2.5%"
+        marginTop: "2.5%",
+        fontFamily: 'Raleway',
     },
     needByText: {
         marginLeft: '2.5%',
@@ -197,6 +201,7 @@ const styles = StyleSheet.create({
         marginTop: "5%",
         fontSize: themes.fontSizes.smallBody, 
         color: themes.colors.grey,
+        fontFamily: 'Raleway',
     },
 
     leftmostInfoButton: {
@@ -214,9 +219,8 @@ const styles = StyleSheet.create({
         width: '30%',
         backgroundColor: themes.colors.orange,
         borderRadius: 99999,
-       
     }, 
-
+    
     gotchaText: {
         color: 'white',
         fontFamily: "RacingSansOne"

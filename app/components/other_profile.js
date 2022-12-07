@@ -17,6 +17,7 @@ import { MaterialCommunityIcons, Fontisto, FontAwesome, MaterialIcons } from '@e
 export default function OtherProfile({navigation, route}) {
 
     const { userInfo } = route.params;
+    
     console.log(userInfo)
 
     let lowercaseName = userInfo[0].toLowerCase();

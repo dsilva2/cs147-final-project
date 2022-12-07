@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
         
     }, 
     profileImage:{
-    
+        
         width: '30%',
         height: undefined,
         aspectRatio: 1,

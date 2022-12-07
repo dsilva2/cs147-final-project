@@ -2,9 +2,10 @@ import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, ScrollView } fr
 import themes from '../../assets/Themes/themes';
 import Icons from '../../assets/Icons';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 
-export default function SuggestedFriendItem ({name, handle}) {
+export default function SuggestedFriendItem ({name, handle, navigation}) {
 
     const [addedUser, setAddedUser] = useState(false)
 
@@ -32,12 +33,17 @@ export default function SuggestedFriendItem ({name, handle}) {
         image = image = <Image source={require("../../assets/Icons/irene.jpg")} style={styles.profileImage}></Image>
     } else if (name == "You"){
         image = image = <Image source={require("../../assets/Icons/james.jpg")} style={styles.profileImage}></Image>
+    } else if (name == "Rayan Rizvi"){
+        image = image = <Image source={require("../../assets/Icons/rayan.jpg")} style={styles.profileImage}></Image>
+
+    } else if (name == "Christian Pulisic"){
+        image = image = <Image source={require("../../assets/Icons/christian.png")} style={styles.profileImage}></Image>
 
     }
 
     return (
 
-        <SafeAreaView style={styles.container}>
+        <Pressable style={styles.container} onPress={() => console.log("Clicked a suggested friend")}>
             <View style={styles.imageView}>
                 {image}
 
@@ -66,7 +72,7 @@ export default function SuggestedFriendItem ({name, handle}) {
 
             </View>
 
-        </SafeAreaView>
+        </Pressable>
         
     )
 }

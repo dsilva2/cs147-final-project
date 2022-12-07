@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, TextInput, Scro
 import themes from '../../assets/Themes/themes';
 import Icons from '../../assets/Icons';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 export default function CommunityPage ({ navigation, route, communityAbout, communitiesData}){
     let params = route.params

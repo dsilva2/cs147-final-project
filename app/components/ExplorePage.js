@@ -47,10 +47,10 @@ export default function ExplorePage ({navigation, route}) {
                 <Text style={styles.suggestedFriendsText}>
                     Suggested Friends
                 </Text>
-                <SuggestedFriendItem  name={"William Seymour"} handle={"@sway"} />
+                <SuggestedFriendItem  name={"Rayan Rizvi"} handle={"@rizvi"} />
                 <SuggestedFriendItem  name={"Lily Bailey"} handle={"@lilybailey"} />
                 <SuggestedFriendItem  name={"William Seymour"} handle={"@sway"} />
-                <SuggestedFriendItem  name={"Lily Bailey"} handle={"@lilybailey"} />
+                <SuggestedFriendItem  name={"Christian Pulisic"} handle={"@captainamerica"} />
 
             </View>
 
@@ -62,7 +62,7 @@ export default function ExplorePage ({navigation, route}) {
                     
                         <Image source={require("../../assets/Icons/FashionX.jpeg")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>FashionX</Text>
-                        <Text style={styles.numMembersText}> 136 Members</Text>
+                        <Text style={styles.numMembersText}> 9 Members</Text>
                     </Pressable>
                     <Pressable style={styles.aCommunity} onPress={() => navigation.navigate("community-page", {communityName: "Stanford SigEp"})}> 
                         <Image source={require("../../assets/Icons/sigep.png")} style={styles.communityImage}></Image>
