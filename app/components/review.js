@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Image, Pressable, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Image, Pressable, TextInput, Modal } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
@@ -15,11 +15,12 @@ const Review = ({ navigation, route}) => {
     console.log("REVIEW", userInfo)
     const firstName = (userInfo[0].split(" "))[0]
     const [itemText, onChangeItem] = useState('');
+    const [modalVisible, setModalVisible] = useState(false)
     let filledStar = <MaterialCommunityIcons name="star-four-points" size={'50%'} color={themes.colors.orange} />
     let unfilledStar = <MaterialCommunityIcons name="star-four-points-outline" size={'50%'} color={themes.colors.orange} />
     let orangeSubmit = <Pressable 
         style={styles.submitButton} 
-        onPress={() => {navigation.navigate("home-screen")}}>
+        onPress={() => setModalVisible(true)}>
         <Text style={styles.submitText}>Submit</Text>
     </Pressable>
     let greySubmit = <View 
@@ -38,6 +39,7 @@ const Review = ({ navigation, route}) => {
     let clockDisplayed, clockText;
     let buttonDisplayed;
     const commentPlaceholder = 'How was your daha experience with ' + firstName + "?"
+    const thanksForReviewing = 'Thank you for reviewing ' + firstName + "!"
     const[firstFilling, setFirstStar] = useState(false)
     const[secondFilling, setSecondStar] = useState(false)
     const[thirdFilling, setThirdStar] = useState(false)
@@ -52,7 +54,6 @@ const Review = ({ navigation, route}) => {
     const [soap, setSoapColor] = useState(false)
     const [handshake, setHandshakeColor] = useState(false)
     const [clock, setClockColor] = useState(false)
-    const [button, setButtonColor] = useState(false)
 
     if (firstFilling) {
         firstStar = filledStar
@@ -156,6 +157,21 @@ const Review = ({ navigation, route}) => {
         clockText = <Text style={styles.traitText}>On Time</Text>
     }
 
+    let image; 
+
+    if (userInfo[0] == "Lily Bailey"){
+        image = <Image source={require("../../assets/Icons/lily.jpg")} style={styles.myDahaPhoto}></Image>
+    } else if ((userInfo[0] == "Calvin Laughlin")){
+        image = <Image source={require("../../assets/Icons/calvin.jpg")} style={styles.myDahaPhoto}></Image>
+    } else if (userInfo[0] == "Dan Healy"){
+        image = <Image source={require("../../assets/Icons/dan.jpg")} style={styles.myDahaPhoto}></Image>
+    } else if (userInfo[0] == "Benjamin Zaidel"){
+        image = image = <Image source={require("../../assets/Icons/benjamin.jpg")} style={styles.myDahaPhoto}></Image>
+    } else if (userInfo[0] == "Irene Au"){
+        image = image = <Image source={require("../../assets/Icons/irene.jpg")} style={styles.myDahaPhoto}></Image>
+    } else if (userInfo[0] == "You"){
+      image = image = <Image source={require("../../assets/Icons/james.jpg")} style={styles.myDahaPhoto}></Image>
+    }
 
 
 
@@ -260,6 +276,36 @@ const Review = ({ navigation, route}) => {
     <View>
         {buttonDisplayed}
     </View>
+    <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalVisible(false);
+        }}
+      >
+        <View style={styles.modalView}>
+          <Pressable
+              onPress={() => {navigation.navigate("post-review", {origin: userInfo})}}
+              onPressOut={() => setModalVisible(false)}
+            >
+              <Text style={styles.xText}>✕</Text>
+            </Pressable>
+            <View style={styles.stars}>{image}</View>
+            <Text style={styles.reviewNameText}>
+                {userInfo[0]}
+            </Text>
+            <View style={styles.reviewStars}>
+                {filledStar}
+                {filledStar}
+                {filledStar}
+                {filledStar}
+                {filledStar}
+            </View>
+            <Text style={styles.thanksText}>{thanksForReviewing}</Text>
+        </View>
+      </Modal>
 
     </View>
   );
@@ -280,7 +326,7 @@ const styles = StyleSheet.create({
     color: themes.colors.grey,
     fontSize: 32,
     textAlign: 'right',
-    marginRight: '5%'
+    marginRight: '5%',
   },
   submitButton: {
     alignItems: 'center',
@@ -380,5 +426,49 @@ starsBox: {
 },
 selectBox: {
     marginTop: '5%'
+},
+modalView: {
+    justifyContent: 'center',
+    width: '80%',
+    height: '40%',
+    marginHorizontal: '10%',
+    marginTop: '62.5%',
+    //marginBottom: '20%',
+    backgroundColor: themes.colors.white,
+    shadowColor: themes.colors.black,
+    shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 1,
+      shadowRadius: 500,
+      elevation: 5,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: themes.colors.black
+},
+myDahaPhoto: {
+    width: 128,
+    height: 128,
+    borderRadius: 9999,
+  },
+  thanksText: {
+    fontSize: themes.fontSizes.largeBody,
+    fontFamily: 'Raleway',
+    color: themes.colors.black,
+    textAlign: 'center',
+    marginVertical: '5%',
+  },
+  reviewNameText: {
+    fontSize: themes.fontSizes.title,
+    color: themes.colors.black,
+    fontFamily: 'Raleway',
+    textAlign: 'center',
+    marginTop: '2.5%',
+},
+reviewStars: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: '2.5%'
 }
 });

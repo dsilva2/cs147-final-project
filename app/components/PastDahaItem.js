@@ -212,13 +212,13 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginLeft: '20%',
         width: '30%',
-        backgroundColor: themes.colors.orange,
+        backgroundColor: themes.colors.white,
         borderRadius: 99999,
        
     }, 
 
     gotchaText: {
-        color: 'white',
+        color: themes.colors.white,
         fontFamily: "RacingSansOne"
     }, 
     

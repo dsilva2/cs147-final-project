@@ -15,6 +15,12 @@ const PreReview = ({ navigation, route}) => {
   console.log("PREREVIEW", origin)
 
 
+  const orangeButton = <Pressable 
+    style={styles.requestButton} 
+    onPress={() => {navigation.navigate("review", { userInfo: origin})}}>
+    <Text style={styles.writeReviewText}>Write a Review</Text>
+    </Pressable>
+
 
   
 
@@ -81,14 +87,14 @@ const PreReview = ({ navigation, route}) => {
             <Text style={styles.topBarText}>
                 Recent Activity
             </Text>
-            <Pressable onPress={() => {navigation.navigate("home-screen", {newObj: newPostObj})}}>
+            <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: origin, image })}}>
                 <Text style={styles.xText}>✕</Text>
             </Pressable>
         </View>
 
 
 
-      <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: [origin[0]], image })}}>
+      <Pressable>
         <View style={styles.dahaPhoto}>
             {ownImage}
             {image}
@@ -157,25 +163,8 @@ const PreReview = ({ navigation, route}) => {
         {/* <Text style={styles.statusText}>{status}</Text> */}
       </View>
     </View>
-    <Pressable 
-        style={styles.requestButton} 
-        onPress={() => {navigation.navigate("review", { userInfo: origin})}}>
-        <Text style={styles.writeReviewText}>Write a Review</Text>
-    </Pressable>
+    {orangeButton}
 
-    {/* <View style={styles.bottomIcons}>
-      <Pressable onPress={() => {navigation.navigate("new-post")}}>
-        <Image
-          source={Icons.post_options.edit}
-          style={styles.changePost}>
-        </Image>
-      </Pressable>
-
-            <Image
-            source={Icons.post_options.delete}
-            style={styles.changePost}>
-            </Image>
-    </View> */}
 
     </View>
   );
@@ -306,6 +295,8 @@ writeReviewText: {
   borrowedText: {
       fontSize: themes.fontSizes.subtitle,
       color: themes.colors.black,
-      fontFamily: 'Raleway'
+      fontFamily: 'Raleway',
+      marginHorizontal: '2.5%',
+      textAlign: 'center'
   }
 });

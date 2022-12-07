@@ -12,7 +12,13 @@ const PostReview = ({ navigation, route}) => {
   const [data, setData] = useState()
   const { origin } = route.params;
   const { makingNewPost } = route.params
+  console.log("POSTREVIEW", origin)
 
+
+  const blackButton = <View 
+    style={styles.requestButton}>
+    <Text style={styles.writeReviewText}>Reviewed</Text>
+    </View>
 
 
   
@@ -71,6 +77,8 @@ const PostReview = ({ navigation, route}) => {
       image = image = <Image source={require("../../assets/Icons/james.jpg")} style={styles.myDahaPhoto}></Image>
     }
 
+    let ownImage = <Image source={require("../../assets/Icons/james.jpg")} style={styles.ownPhoto}></Image>
+
   return (
     
     <View style={styles.container}>
@@ -78,31 +86,31 @@ const PostReview = ({ navigation, route}) => {
             <Text style={styles.topBarText}>
                 Recent Activity
             </Text>
-            <Pressable onPress={() => {navigation.navigate("home-screen", {newObj: newPostObj})}}>
+            <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: origin, image })}}>
                 <Text style={styles.xText}>✕</Text>
             </Pressable>
         </View>
 
 
 
-      <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: [origin[0]], image })}}>
+      <Pressable>
         <View style={styles.dahaPhoto}>
-            {image}
+            {ownImage}
             {image}
         </View>
         <View style={styles.dahaPhoto}>
-            <Text style={styles.nameText}>{origin[0]} borrow</Text>
+            <Text style={styles.borrowedText}>You borrowed a {origin[1]} from {origin[0]}</Text>
         </View>
       </Pressable>
 
 
     <View style={styles.myDahaInfo}>
-      <View style={styles.header}>
+      {/* <View style={styles.header}>
         <View style={styles.name}>
           <Text style={styles.textInfo}>{areOrIs} looking for</Text>
         </View>
         <Text style={styles.itemInfo}>{origin[1]}</Text>
-      </View>
+      </View> */}
 
       <View style={styles.header}>
         <View style={styles.name}>
@@ -127,14 +135,14 @@ const PostReview = ({ navigation, route}) => {
 
       <View style={styles.header}>
         <View style={styles.name}>
-          <Text style={styles.textInfo}>Needs by</Text>
+          <Text style={styles.textInfo}>Needed by</Text>
         </View>
         <Text style={styles.itemInfo}>{origin[5]}</Text>
       </View>
 
       <View style={styles.header}>
         <View style={styles.name}>
-          <Text style={styles.textInfo}>Return by</Text>
+          <Text style={styles.textInfo}>Returned by</Text>
         </View>
         <Text style={styles.itemInfo}>{origin[6]}</Text>
       </View>
@@ -150,29 +158,11 @@ const PostReview = ({ navigation, route}) => {
         <View style={styles.name}>
           <Text style={styles.textInfo}>Status</Text>
         </View>
-        <Text style={styles.statusText}>Unfulfilled</Text>
-        {/* <Text style={styles.statusText}>{status}</Text> */}
+        <Text style={styles.statusText}>Fulfilled</Text>
       </View>
     </View>
-    <Pressable 
-        style={styles.requestButton} 
-        onPress={() => {navigation.navigate("review", { userInfo: [origin[0]]})}}>
-        <Text style={styles.writeReviewText}>Write a Review</Text>
-    </Pressable>
+    {blackButton}
 
-    {/* <View style={styles.bottomIcons}>
-      <Pressable onPress={() => {navigation.navigate("new-post")}}>
-        <Image
-          source={Icons.post_options.edit}
-          style={styles.changePost}>
-        </Image>
-      </Pressable>
-
-            <Image
-            source={Icons.post_options.delete}
-            style={styles.changePost}>
-            </Image>
-    </View> */}
 
     </View>
   );
@@ -208,9 +198,16 @@ const styles = StyleSheet.create({
     width: 128,
     height: 128,
     borderRadius: 9999,
+    marginRight: '-10%',
+  },
+  ownPhoto: {
+    width: 128,
+    height: 128,
+    borderRadius: 9999,
+    marginTop: '10%'
   },
   dahaPhoto: {
-    flexDirection: 'row',
+    flexDirection: 'row-reverse',
     justifyContent: 'center',
     paddingTop: '5%'
   },
@@ -292,5 +289,12 @@ writeReviewText: {
       fontSize: themes.fontSizes.title,
       color: themes.colors.black,
       fontFamily: 'Raleway'
+  },
+  borrowedText: {
+      fontSize: themes.fontSizes.subtitle,
+      color: themes.colors.black,
+      fontFamily: 'Raleway',
+      marginHorizontal: '2.5%',
+      textAlign: 'center'
   }
 });
