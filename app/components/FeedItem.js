@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderColor: themes.colors.grey,
-        borderBottomWidth: 1, 
+        borderBottomWidth: .25, 
         // aspectRatio: 1,
     }, 
     profileImageView: {

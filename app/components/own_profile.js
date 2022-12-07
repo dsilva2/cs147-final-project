@@ -1,11 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, ScrollView } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import FeedList from './FeedList';
+import FeedItem from './FeedItem';
+import PastDahaItem from './PastDahaItem';
 import 'react-native-gesture-handler';
 import { supabase } from '../../supabase/supabase';
 import { useState, useEffect }from "react"
@@ -58,7 +60,7 @@ export default function OwnProfile({navigation, route}) {
         </View>
 
 
-
+        <ScrollView style={styles.scrolling}>
         <View style={styles.profileInfo}>
             <View style={styles.nameAndPhoto}>
                 <Image
@@ -80,7 +82,7 @@ export default function OwnProfile({navigation, route}) {
 
 
             </View>
-
+    
             <View style={styles.numbers}>
                 <View style={styles.friends}>
                     <Text style={styles.numberText}>67</Text>
@@ -95,10 +97,11 @@ export default function OwnProfile({navigation, route}) {
                     <Text style={styles.username}>Borrows</Text>
                 </View>
             </View>
+            
 
         </View>
 
-        <Text style={styles.largeText}>James's Top Traits</Text>
+        <Text style={styles.topTraitsText}>My Top Traits</Text>
 
         <View style={styles.traits}>
             <View style={styles.traitWithText}>
@@ -120,8 +123,69 @@ export default function OwnProfile({navigation, route}) {
 
         </View>
         
-        <Text style={styles.largeText}>Recent Activity</Text>
-        <FeedList feed={sampleFeed}/>
+        <Text style={styles.topTraitsText}>My Communities</Text>
+
+        <View style={styles.suggestedCommunitiesSection}>
+                <View style={styles.suggestedCommunitiesView}>
+                    <Pressable style={styles.aCommunityLeft} onPress={() => console.log("Pressed Community")}> 
+                    
+                        <Image source={require("../../assets/Icons/FashionX.jpeg")} style={styles.communityImage}></Image>
+                        <Text style={styles.communityNameText}>FashionX</Text>
+                        <Text style={styles.numMembersText}> 136 Members</Text>
+                    </Pressable>
+                    <Pressable style={styles.aCommunity} onPress={() => console.log("Pressed Community")}>
+                        <Image source={require("../../assets/Icons/sigep.png")} style={styles.communityImage}></Image>
+                        <Text style={styles.communityNameText}>Stanford SigEp</Text>
+                        <Text style={styles.numMembersText}> 98 Members</Text>
+                    </Pressable>
+                    <Pressable style={styles.aCommunityRight} onPress={() => console.log("Pressed Community")}>
+                        <Image source={require("../../assets/Icons/tour_guides.png")} style={styles.communityImage}></Image>
+                        <Text style={styles.communityNameText}>Tour Guides</Text>
+                        <Text style={styles.numMembersText}> 48 Members</Text>
+                    </Pressable>
+                    
+
+                </View>
+
+            </View>
+
+        
+        <Text style={styles.recentActivityText}>Recent Activity</Text>
+        <View style={styles.list}>
+        <FeedItem 
+        postCreatorName="You"
+        itemNeeded="blue shirt"
+        sizeNeeded="Drew"
+        colorNeeded="red"
+        occasionNeeded="{item.occasionNeeded}"
+        dateNeededBy="tomorrow"
+        dateReturnedBy="{item.dateReturnedBy}"
+        details="{item.details}"
+        />
+        <PastDahaItem 
+        postCreatorName={"Benjamin Zaidel"}
+        itemNeeded="sock"
+        sizeNeeded="Drew"
+        colorNeeded="{item.colorNeeded}"
+        occasionNeeded="{item.occasionNeeded}"
+        dateNeededBy="yesterday"
+        dateReturnedBy="{item.dateReturnedBy}"
+        details="{item.details}"
+        />
+        <PastDahaItem 
+        postCreatorName={"Benjamin Zaidel"}
+        itemNeeded="Drew"
+        sizeNeeded="Drew"
+        colorNeeded="{item.colorNeeded}"
+        occasionNeeded="{item.occasionNeeded}"
+        dateNeededBy="two days ago"
+        dateReturnedBy="{item.dateReturnedBy}"
+        details="{item.details}"
+        />
+        </View>
+
+        </ScrollView>
+
  
       <View style={styles.homeBar}>
           <Pressable onPress={() => {navigation.navigate("home-screen")}}>
@@ -213,7 +277,7 @@ const styles = StyleSheet.create({
   nameAndPhoto: {
     flexDirection: 'row',
     marginLeft: '10%',
-    marginRight: '10%'
+    marginRight: '10%',
     // justifyContent: 'space-between'
   },
   nameText: {
@@ -240,7 +304,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       marginLeft: '15%',
       marginRight: '15%',
-      marginTop: '10%'
+      marginTop: '10%',
   },
   friends: {
       flexDirection: 'column',
@@ -264,12 +328,23 @@ const styles = StyleSheet.create({
       marginTop: '10%',
       marginLeft: '10%'
   },
+  recentActivityText: {
+    fontSize: themes.fontSizes.subtitle,
+    color: themes.colors.black,
+    fontFamily: 'Raleway',
+    textAlign: 'left',
+    width: '100%',
+    marginTop: '-15%',
+    marginLeft: '10%'
+  },
   traits: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: '90%',
     marginTop: '5%',
-   alignItems: 'flex-start'
+   alignItems: 'flex-start',
+   marginLeft: '5%'
+
 
 },
 traitWithText: {
@@ -285,5 +360,130 @@ traitText: {
   fontFamily: 'Raleway',
   marginTop: '5%',
   textAlign: 'center'
+},
+scrolling: {
+  width: '110%',
+},
+list: {
+  marginLeft: '5%',
+  marginBottom: '50%',
+  marginRight: '5%',
+},
+suggestedFriendsView: {
+  //   backgroundColor: 'green',
+    width: '100%',
+},
+
+suggestedFriendsText: {
+    fontSize: themes.fontSizes.subtitle, 
+    fontFamily: 'Raleway',
+    color: themes.colors.black, 
+    marginLeft: '7.5%',
+
+}, 
+
+suggestedFriendItemsView: {
+    
+    width: '100%', 
+  //   backgroundColor: 'green',
+    height: '40%',
+
+}, 
+
+
+suggestedCommunitiesSection: {
+    marginTop: '1.5%',
+  //   backgroundColor: 'blue',
+    width: '100%',
+    height: '25%',
+  //   aspectRatio: 1,
+}, 
+
+suggestedCommunitiesView: {
+  //   backgroundColor: 'red',
+    // THIS IS WHERE THE IMAGES WILL BE
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: '100%',
+    width: '90%',
+  //   backgroundColor: 'blue',
+    justifyContent: 'space-around',
+    marginHorizontal: '5%',
+     marginTop: '-10%'
+
+  //   aspectRatio: 1,
+  //   flex
+}, 
+
+
+communityImage: {
+
+  width: '35%',
+  height: '35%',
+  aspectRatio: 1,
+  borderRadius: 10,
+  //   width: '30%',
+  // width: 0,
+  //   resizeMode: 'contain',
+}, 
+
+aCommunity: {
+  flexDirection: 'column',
+  // justifyContent: 'flex-start',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // backgroundColor: 'yellow',
+  height: '100%',
+  width: '33.33%',
+  //marginBottom: '5%',
+
+}, 
+
+aCommunityLeft: {
+  flexDirection: 'column',
+  // justifyContent: 'flex-start',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // backgroundColor: 'yellow',
+  height: '100%',
+  width: '33.33%',
+  marginLeft: '2.5%',
+  //marginBottom: '5%',
+
+}, 
+
+aCommunityRight: {
+  flexDirection: 'column',
+  // justifyContent: 'flex-start',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // backgroundColor: 'yellow',
+  height: '100%',
+  width: '33.33%',
+  marginRight: '2.5%',
+  //marginBottom: '5%', 
+
+}, 
+
+communityNameText: {
+  color: themes.colors.black,
+  fontSize: themes.fontSizes.largeBody,
+  fontFamily: "Raleway",
+  marginTop: '10%',
+}, 
+
+numMembersText: {
+  color: themes.colors.black,
+  fontSize: themes.fontSizes.smallBody,
+  fontFamily: "Raleway",
+},
+topTraitsText: {
+  fontSize: themes.fontSizes.subtitle,
+      color: themes.colors.black,
+      fontFamily: 'Raleway',
+      textAlign: 'left',
+      width: '100%',
+      marginTop: '5%',
+      marginLeft: '10%'
 },
 });

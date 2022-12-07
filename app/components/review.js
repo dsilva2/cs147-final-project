@@ -260,7 +260,7 @@ const Review = ({ navigation, route}) => {
                 <Text style={styles.largeText}>
                     Comment
                 </Text>
-                <TextInput style={styles.mediumText}
+                <TextInput style={styles.commentText}
                 onChangeText={onChangeItem}
                 value={itemText}
                 placeholder={commentPlaceholder}
@@ -384,6 +384,12 @@ submitText: {
       fontFamily: 'Raleway',
       color: themes.colors.orange
   },
+  commentText: {
+    fontSize: themes.fontSizes.largeBody,
+    fontFamily: 'Raleway',
+    color: themes.colors.orange,
+    marginTop: '2.5%'
+},
   commentBox: {
     height: '20%'
   },
@@ -444,7 +450,7 @@ modalView: {
       shadowRadius: 500,
       elevation: 5,
     borderRadius: 20,
-    borderWidth: 1,
+    borderWidth: 0.25,
     borderColor: themes.colors.black
 },
 myDahaPhoto: {

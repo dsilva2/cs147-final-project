@@ -96,7 +96,7 @@ export default function PastDahaItem({postCreatorName, itemNeeded, sizeNeeded, c
                 
                 
                 <Text style={styles.itemDescriptionText}>lent a {itemNeeded} to you</Text>
-                <Text style={styles.needByText}>by {dateNeededBy}</Text>
+                <Text style={styles.needByText}>returned {dateReturnedBy}</Text>
                 
 
                 <View style={styles.postInfoButtonsView}>
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderColor: themes.colors.grey,
-        borderBottomWidth: 1, 
+        borderBottomWidth: 0.25, 
         // aspectRatio: 1,
     }, 
     profileImageView: {

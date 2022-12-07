@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
   },
   largeText: {
     color: themes.colors.black,
-    fontSize: 22,
+    fontSize: themes.fontSizes.subtitle,
     textAlign: 'left',
     paddingBottom: '5%',
     justifyContent: 'space-between',
@@ -215,8 +215,9 @@ const styles = StyleSheet.create({
   },
   info: {
     marginLeft: '2.5%',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     width: '85%',
+    height: '80%'
   },
   itemDescription: {
     width: '85%',
@@ -251,7 +252,7 @@ postButton: {
   },
   postButtonText: {
     color: themes.colors.white,
-    fontSize: 22,
+    fontSize: themes.fontSizes.subtitle,
     paddingLeft: '10%',
     paddingRight: '10%',
   },
