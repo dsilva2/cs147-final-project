@@ -168,6 +168,7 @@ const styles = StyleSheet.create({
     
     nameText:{
         // marginBottom: '2.5%',
+        fontFamily: 'Raleway',
         marginTop: "5%",
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
@@ -177,6 +178,7 @@ const styles = StyleSheet.create({
 
     nameTextYou: {
         // marginBottom: '2.5%',
+        fontFamily: 'Raleway',
         marginTop: "5%",
         marginLeft: '2.5%', 
         fontSize: themes.fontSizes.subtitle,
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%',
         fontSize: themes.fontSizes.mediumBody,
         color: themes.colors.black,
+        fontFamily: 'Raleway',
         // marginBottom: '2.5%'
         // marginTop: "1%"
         marginTop: "2.5%",
