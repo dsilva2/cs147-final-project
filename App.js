@@ -15,6 +15,7 @@ import 'react-native-gesture-handler';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import PostReview from './app/components/post-review';
+import ExplorePage from './app/components/ExplorePage';
 
 
 const Stack = createStackNavigator();
@@ -39,6 +40,7 @@ export default function App() {
           <Stack.Screen name="pre-review" component={PreReview} />
           <Stack.Screen name="review" component={Review} />
           <Stack.Screen name="post-review" component={PostReview} />
+          <Stack.Screen name="explore-page" component={ExplorePage} />
 
 
       </Stack.Navigator>
