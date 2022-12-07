@@ -15,7 +15,6 @@ import { useState, useEffect }from "react"
 export default function HomeScreen({navigation, route}) {
 
   let comingFromNewPost = false; 
-  console.log("HELLO")
   const [data, setData] = useState()
 
   let undefinedNewPost = false; 
@@ -23,13 +22,6 @@ export default function HomeScreen({navigation, route}) {
 
   // const { postToAddInfo } = route.params; 
   const newObj  = route.params
-
-
-  console.log("***")
-  console.log(newObj)
-  console.log("*****")
-  console.log(typeof newObj)
-  console.log(typeof newObj == 'undefined')
   if (typeof newObj == 'undefined'){
     undefinedNewPost = true; 
 
@@ -87,10 +79,10 @@ export default function HomeScreen({navigation, route}) {
   useEffect(() => {
     getData()
   }, [])
-  console.log(data)
+
 
   if(data) {
-    console.log(data)
+    // console.log(data)
 
     for (let i = data.length - 1; i >=0; i--) {
       // console.log(data[i].name, data[i].size, data[i].item)
@@ -98,11 +90,11 @@ export default function HomeScreen({navigation, route}) {
     }
   }
 
-  console.log("$$$$$")
+  // console.log("$$$$$")
   // console.log(newObj["newObj"])
-  console.log("$$$$$$$$")
-  console.log(comingFromNewPost)
-  console.log(newObj) 
+  // console.log("$$$$$$$$")
+  // console.log(comingFromNewPost)
+  // console.log(newObj) 
 
   if (newObj){
     comingFromNewPost = true;
@@ -116,7 +108,7 @@ export default function HomeScreen({navigation, route}) {
     }
   }
 
-  console.log(sampleFeed)
+  // console.log(sampleFeed)
 
   // const [sampleFeed, setFeed] = useState([])
   // setFeed([{1: "HELLO"}])

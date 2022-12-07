@@ -18,7 +18,7 @@ import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import PostReview from './app/components/post-review';
 import ExplorePage from './app/components/ExplorePage';
-
+import CommunityPage from './app/components/CommunityPage';
 
 const Stack = createStackNavigator();
 
@@ -30,8 +30,8 @@ export default function App() {
   if (!fontsLoaded) return <AppLoading />;
   
 
-
   return (
+    // <CommunityPage></CommunityPage>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="splash-screen" component={SplashScreen} />
@@ -39,12 +39,14 @@ export default function App() {
           <Stack.Screen name="home-screen" component={HomeScreen} />
           <Stack.Screen name="new-post" component={NewPost} />
           <Stack.Screen name="my-daha" component={MyDaha} />
+          <Stack.Screen name="explore-page" component={ExplorePage} />
+          <Stack.Screen name="community-page" component={CommunityPage} />
           <Stack.Screen name="own-profile" component={OwnProfile} />
           <Stack.Screen name="other-profile" component={OtherProfile} />
           <Stack.Screen name="pre-review" component={PreReview} />
           <Stack.Screen name="review" component={Review} />
           <Stack.Screen name="post-review" component={PostReview} />
-          <Stack.Screen name="explore-page" component={ExplorePage} />
+          {/* <Stack.Screen name="explore-page" component={ExplorePage} /> */}
 
 
       </Stack.Navigator>

@@ -1,9 +1,20 @@
 import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, ScrollView } from 'react-native';
 import themes from '../../assets/Themes/themes';
 import Icons from '../../assets/Icons';
+import { useState } from 'react';
 
 
 export default function SuggestedFriendItem ({name, handle}) {
+
+    const [addedUser, setAddedUser] = useState(false)
+
+    const toAddButton = <Pressable style={styles.addButton} onPress={() => setAddedUser(true)}><Text style={styles.addText}>Add</Text></Pressable>
+    const alreadyAddedButton = <Pressable style={styles.addedButton} onPress={() => setAddedUser(false)}><Text style={styles.addText}>Added</Text></Pressable>
+    let addToDisplay = toAddButton; 
+
+    if (addedUser){
+        addToDisplay = alreadyAddedButton; 
+    }
 
     let image; 
 
@@ -26,7 +37,6 @@ export default function SuggestedFriendItem ({name, handle}) {
 
     return (
 
-        
         <SafeAreaView style={styles.container}>
             <View style={styles.imageView}>
                 {image}
@@ -44,13 +54,14 @@ export default function SuggestedFriendItem ({name, handle}) {
             </View>
 
             <View style={styles.buttonsView}>
-                <Pressable style={styles.addButton} onPress={() => console.log("Pressed Add")}>
+                {/* <Pressable style={styles.addButton}>
                     <Text style={styles.addText}>Add</Text>
-                </Pressable>
+                </Pressable> */}
+                {addToDisplay}
 
-                <Pressable onPress={() => console.log("Pressed X")}>
+                {/* <Pressable onPress={() => console.log("Pressed X")}>
                     <Text style={styles.xText}>X</Text>
-                </Pressable>
+                </Pressable> */}
 
 
             </View>
@@ -135,6 +146,17 @@ const styles = StyleSheet.create({
 
     addButton: {
         backgroundColor: themes.colors.orange,
+        width: '40%',
+        height: '40%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 99999,
+        // marginRight: '10%',
+
+    },
+
+    addedButton: {
+        backgroundColor: themes.colors.grey,
         width: '40%',
         height: '40%',
         justifyContent: 'center',

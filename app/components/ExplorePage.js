@@ -21,6 +21,8 @@ export default function ExplorePage ({navigation, route}) {
 
     // console.log(params)
 
+    
+
 
 
     return(
@@ -56,18 +58,18 @@ export default function ExplorePage ({navigation, route}) {
             <View style={styles.suggestedCommunitiesSection}>
                 <Text style={styles.suggestedFriendsText}>Suggested Communities</Text>
                 <View style={styles.suggestedCommunitiesView}>
-                    <Pressable style={styles.aCommunityLeft} onPress={() => console.log("Pressed Community")}> 
+                    <Pressable style={styles.aCommunityLeft} onPress={() => navigation.navigate("community-page", {communityName: "FashionX"})}> 
                     
                         <Image source={require("../../assets/Icons/FashionX.jpeg")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>FashionX</Text>
                         <Text style={styles.numMembersText}> 136 Members</Text>
                     </Pressable>
-                    <Pressable style={styles.aCommunity} onPress={() => console.log("Pressed Community")}>
+                    <Pressable style={styles.aCommunity} onPress={() => navigation.navigate("community-page", {communityName: "Stanford SigEp"})}> 
                         <Image source={require("../../assets/Icons/sigep.png")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>Stanford SigEp</Text>
                         <Text style={styles.numMembersText}> 98 Members</Text>
                     </Pressable>
-                    <Pressable style={styles.aCommunityRight} onPress={() => console.log("Pressed Community")}>
+                    <Pressable style={styles.aCommunityRight} onPress={() => navigation.navigate("community-page", {communityName: "Tour Guides"})}> 
                         <Image source={require("../../assets/Icons/tour_guides.png")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>Tour Guides</Text>
                         <Text style={styles.numMembersText}> 48 Members</Text>
@@ -110,10 +112,15 @@ export default function ExplorePage ({navigation, route}) {
                 style={styles.homeBarButton}>
                 </Image>
 
-                <Image
-                source={Icons.profile.light}
-                style={styles.homeBarButton}>
-                </Image>
+                <Pressable onPress={() => {navigation.navigate("own-profile")}}>
+                    <Image
+                        source={Icons.profile.light}
+                        style={styles.homeBarButton}>
+                    </Image>
+
+                </Pressable>
+
+                
             </View>
 
         </View>

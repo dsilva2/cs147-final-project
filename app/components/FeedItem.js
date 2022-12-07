@@ -67,9 +67,7 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
 
     let name = "Calvin Laughlin"
 
-    console.log(str)
-
-
+    // console.log(str)
 
     // let imageString = `../../assest/ProfileImages/${postCreatorName}.jpg`
     // console.log(imageString)

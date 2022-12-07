@@ -195,10 +195,14 @@ export default function OwnProfile({navigation, route}) {
             </Image>
           </Pressable>
 
-        <Image
-        source={Icons.search.light}
-        style={styles.homeBarButton}>
-        </Image>
+          <Pressable onPress={() => navigation.navigate("explore-page", {params: {someText: "This is some text"}})}> 
+            <Image
+              source={Icons.search.light}
+              style={styles.homeBarButton}>
+            </Image>
+          </Pressable>
+
+        
 
         <Pressable onPress={() => {navigation.navigate("new-post")}}>
             <Image
