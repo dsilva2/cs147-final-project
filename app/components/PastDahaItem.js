@@ -89,7 +89,7 @@ export default function PastDahaItem({postCreatorName, itemNeeded, sizeNeeded, c
                 
 
                 <View style={styles.postInfoButtonsView}>
-                    <Pressable style={styles.infoButton}>
+                    <Pressable style={styles.leftmostInfoButton}>
                         <Ionicons name="chatbubble-outline" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
                     <Pressable style={styles.infoButton}>
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         display: 'flex',
         // height: '15%',
-        height: 125,
+        height: 160,
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -195,22 +195,27 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%',
         fontSize: themes.fontSizes.mediumBody,
         color: themes.colors.black,
+        marginTop: '2.5%'
     },
     needByText: {
         marginLeft: '2.5%',
         marginBottom: '2.5%',
+        marginTop: '5%',
         fontSize: themes.fontSizes.smallBody, 
         color: themes.colors.grey,
     },
+    leftmostInfoButton: {
+        marginLeft: '2.5%',
+    }, 
 
     infoButton: {
-        marginLeft: '2.5%',
+        marginLeft: '6%',
     }, 
 
     gotchaButton: {
         alignItems: 'center',
         justifyContent: 'center',
-        marginLeft: '20%',
+        marginLeft: '16.5%',
         width: '30%',
         backgroundColor: themes.colors.white,
         borderRadius: 99999,
