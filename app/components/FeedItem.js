@@ -3,7 +3,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import themes from '../../assets/Themes/themes';
 import { useNavigation } from '@react-navigation/native';
-
+import { useState, useEffect }from "react"
 
  
 
@@ -14,6 +14,15 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
     let needOrNeeds = "needs"; 
     if (postCreatorName === "You"){
         needOrNeeds = "need";
+    }
+    let heartDisplayed;
+    const [heart, setHeartColor] = useState(false)
+
+    if (heart) {
+        heartDisplayed = <AntDesign name="heart" size={'25%'} color={themes.colors.grey} />
+    }
+    if (!heart) {
+        heartDisplayed = <AntDesign name="hearto" size={'25%'} color={themes.colors.grey} />
     }
 
     // let str = `../../assets/Icons/${name}.jpg`
@@ -89,8 +98,8 @@ export default function FeedItem({postCreatorName, itemNeeded, sizeNeeded, color
                     <Pressable style={styles.infoButton}>
                         <AntDesign name="retweet" size={'25%'} color={themes.colors.grey} />
                     </Pressable>
-                    <Pressable style={styles.infoButton}>
-                        <AntDesign name="hearto" size={'25%'} color={themes.colors.grey} />
+                    <Pressable style={styles.infoButton} onPress={() => setHeartColor(!heart)}>
+                        {heartDisplayed}
                     </Pressable>
 
                     {/* <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}>
