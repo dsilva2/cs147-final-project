@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Icons from './assets/Icons';
 import themes from './assets/Themes/themes';
+import SplashScreen from './app/components/splash_screen';
+import SplashScreenMotto from './app/components/splash_screen_motto';
 import HomeScreen from './app/components/blank_home_screen';
 import NewPost from './app/components/new_post';
 import MyDaha from './app/components/my_daha';
@@ -32,6 +34,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="splash-screen" component={SplashScreen} />
+          <Stack.Screen name="splash-screen-motto" component={SplashScreenMotto} />
           <Stack.Screen name="home-screen" component={HomeScreen} />
           <Stack.Screen name="new-post" component={NewPost} />
           <Stack.Screen name="my-daha" component={MyDaha} />
