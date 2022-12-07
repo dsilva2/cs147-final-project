@@ -24,6 +24,10 @@ export default function OtherProfile({navigation, route}) {
     const firstName = (userInfo[0].split(" "))[0]
     console.log(lowercaseName, firstName)
 
+    const filledStar = <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
+    const unfilledStar = <MaterialCommunityIcons name="star-four-points-outline" size={'25%'} color={themes.colors.orange} />
+
+
     let requestStatus;
     const [requestSent, sendRequest] = useState(false)
 
@@ -106,11 +110,11 @@ export default function OtherProfile({navigation, route}) {
                     <Text style={styles.nameText}>{userInfo[0]}</Text>
                     <Text style={styles.username}>@{lowercaseName}</Text>
                     <View style={styles.stars}>
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points-outline" size={'25%'} color={themes.colors.orange} />
+                        {filledStar}
+                        {filledStar}
+                        {filledStar}
+                        {filledStar}
+                        {unfilledStar}
 
                     </View>
                 </View>

@@ -15,6 +15,9 @@ import { MaterialCommunityIcons, Fontisto, FontAwesome, MaterialIcons } from '@e
 
 export default function OwnProfile({navigation, route}) {
 
+    const filledStar = <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
+    const unfilledStar = <MaterialCommunityIcons name="star-four-points-outline" size={'25%'} color={themes.colors.orange} />
+
     const sampleFeed = [
         {
           postCreatorName: "You", 
@@ -66,11 +69,11 @@ export default function OwnProfile({navigation, route}) {
                     <Text style={styles.nameText}>James Landay</Text>
                     <Text style={styles.username}>@jameslanday</Text>
                     <View style={styles.stars}>
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
-                        <MaterialCommunityIcons name="star-four-points-outline" size={'25%'} color={themes.colors.orange} />
+                        {filledStar}
+                        {filledStar}
+                        {filledStar}
+                        {filledStar}
+                        {unfilledStar}
 
                     </View>
                 </View>
