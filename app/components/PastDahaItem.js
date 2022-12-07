@@ -6,8 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useState, useEffect }from "react"
 
 
- 
-
 export default function PastDahaItem({postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details}){
 
     const navigation = useNavigation();
