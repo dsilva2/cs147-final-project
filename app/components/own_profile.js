@@ -156,7 +156,7 @@ export default function OwnProfile({navigation, route}) {
         postCreatorName="You"
         itemNeeded="blue shirt"
         sizeNeeded="Drew"
-        colorNeeded="red"
+        colorNeeded="blue"
         occasionNeeded="{item.occasionNeeded}"
         dateNeededBy="tomorrow"
         dateReturnedBy="{item.dateReturnedBy}"
@@ -164,23 +164,23 @@ export default function OwnProfile({navigation, route}) {
         />
         <PastDahaItem 
         postCreatorName={"Benjamin Zaidel"}
-        itemNeeded="sock"
-        sizeNeeded="Drew"
-        colorNeeded="{item.colorNeeded}"
-        occasionNeeded="{item.occasionNeeded}"
+        itemNeeded="blazer"
+        sizeNeeded="medium"
+        colorNeeded="blue"
+        occasionNeeded="Formal"
         dateNeededBy="yesterday"
-        dateReturnedBy="{item.dateReturnedBy}"
-        details="{item.details}"
+        dateReturnedBy="this morning"
+        details="Please help!"
         />
         <PastDahaItem 
-        postCreatorName={"Benjamin Zaidel"}
-        itemNeeded="Drew"
-        sizeNeeded="Drew"
-        colorNeeded="{item.colorNeeded}"
-        occasionNeeded="{item.occasionNeeded}"
-        dateNeededBy="two days ago"
-        dateReturnedBy="{item.dateReturnedBy}"
-        details="{item.details}"
+        postCreatorName={"Calvin Laughlin"}
+        itemNeeded="rain jacket"
+        sizeNeeded="medium"
+        colorNeeded="blue"
+        occasionNeeded="Formal"
+        dateNeededBy="yesterday"
+        dateReturnedBy="two days ago"
+        details="Please help!"
         />
         </View>
 
