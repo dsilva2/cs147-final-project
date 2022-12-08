@@ -1,31 +1,33 @@
-import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, Pressable, TextInput, ScrollView, Modal } from 'react-native';
 import themes from '../../assets/Themes/themes';
 import Icons from '../../assets/Icons';
 import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
 
-export default function CommunityPage ({ navigation, route, communityAbout, communitiesData}){
+export default function CommunityPage ({ navigation, route, communitiesData}){
     let params = route.params
+    let aboutParagraph = params.aboutParagraph
     let communityName = params.communityName
     console.log(params)
 
+    let alreadyRequested = params.alreadyRequested
+
+    if (!alreadyRequested) alreadyRequested = false; 
+    console.log("***")
+    console.log(alreadyRequested)
     // let communityName = "HE"
 
-
-
-
-
-
-
+    const [modalVisible, setModalVisible] = useState(false)
 
     let sampleGroupMembers = [
-        {name: "William Seymour", imageurl: "../../assets/Icons/william.jpg"},
-        {name: "Dan Healy", imageurl: "../../assets/Icons/dan.jpg"},
-        {name: "Lily Bailey", imageurl: "../../assets/Icons/lily.jpg"},
-        {name: "Calvin Laughlin", imageurl: "../../assets/Icons/calvin.jpg"},
-        {name: "Benjamin Zaidel", imageurl: "../../assets/Icons/benjamin.jpg"}, 
-        {name: "Irene Au", imageurl: "../../assets/Icons/irene.jpg"},
-        {name: "Drew Silva", imageurl: "../../assets/Icons/drew_picture.png"}
+        {name: "William Seymour"},
+        {name: "Dan Healy"},
+        {name: "Lily Bailey"},
+        {name: "Calvin Laughlin"},
+        {name: "Benjamin Zaidel"},
+        {name: "Irene Au"},
+        {name: "Drew Silva"},
+        {name: "Rayan Rizvi"}
     ];
 
     // let someurl = "../../assets/Icons/william.jpg";
@@ -41,28 +43,66 @@ export default function CommunityPage ({ navigation, route, communityAbout, comm
     //     })
     // }
 
-    let requestStatus;
-    const [requestSent, sendRequest] = useState(false)
+    if (!alreadyRequested) alreadyRequested = false;
 
-    const sentRequest = <View style={styles.requestButton} ><Text style={styles.requestText}>Request to Join</Text></View>
-    const pendingRequest = <View style={styles.requestedButton}><Text style={styles.requestText}>Request Pending</Text></View>
+    let requestStatus;
+    // let requestSent;
+
+    const [requestSent, setRequestSend] = useState(false)
+
+    // if (alreadyRequested) setRequestSend(true);
+
+
+    
+
+    const orangeRequest = <View style={styles.requestButton} ><Text style={styles.requestText}>Request to Join</Text></View>
+    const greyRequest = <View style={styles.requestedButton}><Text style={styles.requestText}>Request Pending</Text></View>
 
     if (!requestSent) {
-        requestStatus = sentRequest
+        requestStatus = orangeRequest
+    } else {
+        requestStatus = greyRequest
     }
-    if (requestSent) {
-        requestStatus = pendingRequest
+
+    if (alreadyRequested){
+        requestStatus = greyRequest
+
+    }
+
+
+    // if (!alreadyRequested) {
+    //     requestStatus = orangeRequest
+    // } else {
+    //     requestStatus = greyRequest
+    // }
+
+    const onPressRequest = () => {
+
+        setModalVisible();
+        // if (!alreadyRequested){
+            // setModalVisible();
+        // } else {
+        //     console.log("GOT HERE")
+        //     requestStatus = orangeRequest
+        //     alreadyRequested = false
+        //     sendRequest(!requestSent)
+        // }
+        
     }
 
     let communityProfileImage = <Image source={require("../../assets/Icons/FashionX.jpeg")} style={styles.communityImage}></Image>
+    let modalImage = <Image source={require("../../assets/Icons/FashionX.jpeg")} style={styles.modalImage}></Image>
 
     if (communityName == "Tour Guides"){
         communityProfileImage = <Image source={require("../../assets/Icons/tour_guides.png")} style={styles.communityImage}></Image>
-
+        modalImage = <Image source={require("../../assets/Icons/tour_guides.png")} style={styles.modalImage}></Image>
     } else if (communityName == "Stanford SigEp"){
         communityProfileImage = <Image source={require("../../assets/Icons/sigep.png")} style={styles.communityImage}></Image>
-
+        modalImage = <Image source={require("../../assets/Icons/sigep.png")} style={styles.modalImage}></Image>
     }
+
+
+    
 
 
 
@@ -79,15 +119,39 @@ export default function CommunityPage ({ navigation, route, communityAbout, comm
 
                 {communityProfileImage}
                 <Text style={styles.communityNameText}>{communityName}</Text>
-                <Pressable style={styles.requestPressable} onPress={() => sendRequest(!requestSent)}>
+                <Pressable style={styles.requestPressable} onPress={onPressRequest}>
                     {requestStatus}
                 </Pressable>
+                <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                Alert.alert("Modal has been closed.");
+                setModalVisible(false);
+                }}
+                >
+                    <View style={styles.modalView}> 
+                    <Pressable
+                    onPress={() => {navigation.navigate("community-page", {communityName: communityName, aboutParagraph: aboutParagraph, alreadyRequested: true})}}
+                    onPressOut={() => setModalVisible(false)}
+                    >
+                     <Text style={styles.modalXText}>✕</Text>
+                        {modalImage}
+                     <Text style={styles.modalCommunityNameText}>{communityName}</Text>
+                     <View style={styles.modalSubTextView}>
+                        <Text style={styles.modalSubText} >Your request to join {communityName} has been sent!</Text>
+                     </View>
+
+                    </Pressable>
+                    </View>
+                </Modal>
             </View>
 
             <View style={styles.aboutSection}>
                 <Text style={styles.aboutHeader}>About</Text>
                 <View style={styles.aboutParagraph}>
-                    <Text style={styles.aboutParagraphText}>Stanford FashionX aims to user in the next wave of innovators, creatives, and activists within the fashion industry. Those who challenge tradition, initiate progress, and solve fashion's looming questions.</Text>
+                    <Text style={styles.aboutParagraphText}>{aboutParagraph}</Text>
                 </View>
 
             </View>
@@ -112,17 +176,24 @@ export default function CommunityPage ({ navigation, route, communityAbout, comm
                             } else if (member.name === "Lily Bailey"){
                                 img = <Image style={styles.memberImage} source={require("../../assets/Icons/lily.jpg")}/>
                             } else if (member.name === "Irene Au"){
-                                img = <Image style={styles.memberImage} source={require("../../assets/Icons/lily.jpg")}/>
-                            } 
+                                img = <Image style={styles.memberImage} source={require("../../assets/Icons/irene.jpg")}/>
+                            } else if (member.name === "Dan Healy") {
+                                img = <Image style={styles.memberImage} source={require("../../assets/Icons/dan.jpg")}/>
+                            } else if (member.name === "Benjamin Zaidel") {
+                                img = <Image style={styles.memberImage} source={require("../../assets/Icons/benjamin.jpg")}/>
+                            } else if (member.name === "Rayan Rizvi") {
+                                img = <Image style={styles.memberImage} source={require("../../assets/Icons/rayan.jpg")}/>
+                            }
 
-                            let url = member.imageurl
+
+                            // {navigation.navigate("other-profile", {userInfo: member.name})}
                             return (
-                            <View style={styles.memberImageAndTextView}>
-                                <Pressable style={styles.imagePressable}>
+                            <Pressable style={styles.memberImageAndTextView}>
+                                <Pressable style={styles.imagePressable} onPress={() => console.log(member.name)}>
                                     {img}
                                 </Pressable>
                                 <Text style={styles.memberNameText}>{member.name}</Text>
-                            </View>
+                            </Pressable>
                             )
                         })}
                     </View>
@@ -226,7 +297,57 @@ const styles = StyleSheet.create({
         fontFamily: 'Raleway',
         color: themes.colors.white,
         
+
+        
     }, 
+
+    modalXText: {
+        color: themes.colors.grey,
+        fontSize: 32,
+        textAlign: 'right',
+        marginRight: '5%',
+      },
+
+      modalCommunityNameText: {
+        fontSize: themes.fontSizes.title,
+        color: themes.colors.black,
+        fontFamily: 'Raleway',
+        textAlign: 'center',
+        marginTop: '2.5%',
+    },
+
+    modalSubTextView: {
+        // marginTop: '2.5%',
+        alignSelf: 'center',
+        // backgroundColor: 'blue',
+        width: "80%",
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'row',
+
+    },
+
+    modalSubText: {
+        fontSize: themes.fontSizes.largeBody,
+        textAlign: 'center',
+        fontFamily: "Raleway",
+        lineHeight: "25%",
+    },
+
+    modalImage: {
+        
+        // justifyContent: 'center',
+        // marginTop: '10%', 
+        // marginLeft: '50%',
+        aspectRatio: 1,
+        // width: '50%',
+        // height: '50%',
+        alignSelf: 'center',
+        height: "50%",
+        width: "50%",
+        borderRadius: 10,
+
+      },
 
 
     aboutSection: {
@@ -274,6 +395,28 @@ const styles = StyleSheet.create({
 
     },
 
+    modalView: {
+        justifyContent: 'center',
+        width: '80%',
+        height: '40%',
+        marginHorizontal: '10%',
+        marginTop: '62.5%',
+        //marginBottom: '20%',
+        backgroundColor: themes.colors.white,
+        // backgroundColor: 'blue',
+        shadowColor: themes.colors.black,
+        shadowOffset: {
+            width: 0,
+            height: 2
+          },
+          shadowOpacity: 1,
+          shadowRadius: 500,
+          elevation: 5,
+        borderRadius: 20,
+        borderWidth: 0.25,
+        borderColor: themes.colors.black
+    },
+
     memberHeaderText: {
         fontFamily: 'Raleway',
         fontSize: themes.fontSizes.subtitle,
@@ -315,6 +458,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // justifyContent: 'space-between'
         marginBottom: "10%",
+        // backgroundColor: 'red',
     },
 
     memberNameText: {

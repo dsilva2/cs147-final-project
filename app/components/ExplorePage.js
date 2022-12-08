@@ -58,21 +58,21 @@ export default function ExplorePage ({navigation, route}) {
             <View style={styles.suggestedCommunitiesSection}>
                 <Text style={styles.suggestedFriendsText}>Suggested Communities</Text>
                 <View style={styles.suggestedCommunitiesView}>
-                    <Pressable style={styles.aCommunityLeft} onPress={() => navigation.navigate("community-page", {communityName: "FashionX"})}> 
+                    <Pressable style={styles.aCommunityLeft} onPress={() => navigation.navigate("community-page", {communityName: "FashionX", aboutParagraph: "Stanford FashionX aims to user in the next wave of innovators, creatives, and activists within the fashion industry. Those who challenge tradition, initiate progress, and solve fashion's looming questions."})}> 
                     
                         <Image source={require("../../assets/Icons/FashionX.jpeg")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>FashionX</Text>
-                        <Text style={styles.numMembersText}> 9 Members</Text>
+                        <Text style={styles.numMembersText}> 8 Members</Text>
                     </Pressable>
-                    <Pressable style={styles.aCommunity} onPress={() => navigation.navigate("community-page", {communityName: "Stanford SigEp"})}> 
+                    <Pressable style={styles.aCommunity} onPress={() => navigation.navigate("community-page", {communityName: "Stanford SigEp", aboutParagraph: "Help other brothers at SigEp find items they may need! Whether you're living in the house or not, we an all use daha to help share our items!"})}> 
                         <Image source={require("../../assets/Icons/sigep.png")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>Stanford SigEp</Text>
-                        <Text style={styles.numMembersText}> 98 Members</Text>
+                        <Text style={styles.numMembersText}> 8 Members</Text>
                     </Pressable>
-                    <Pressable style={styles.aCommunityRight} onPress={() => navigation.navigate("community-page", {communityName: "Tour Guides"})}> 
+                    <Pressable style={styles.aCommunityRight} onPress={() => navigation.navigate("community-page", {communityName: "Tour Guides", aboutParagraph: "Join our community of the best backwards walkers on campus! Help other tour guides find items they might need! See you around campus!"})}> 
                         <Image source={require("../../assets/Icons/tour_guides.png")} style={styles.communityImage}></Image>
                         <Text style={styles.communityNameText}>Tour Guides</Text>
-                        <Text style={styles.numMembersText}> 48 Members</Text>
+                        <Text style={styles.numMembersText}> 8 Members</Text>
                     </Pressable>
                     
 
@@ -133,13 +133,14 @@ const styles = StyleSheet.create({
         // backgroundColor: 'blue',
         flex: 1,
         alignItems: 'center',
-        // justifyContent: 'space-between',
+        justifyContent: 'space-between',
         display: 'flex',
 
     },
 
     searchArea: {
-        marginTop: '20%',
+        marginTop: '15%',
+        // paddingTop: '15%',
         width: '100%',
         // flexDirection: 'row',
         alignItems: 'center',
@@ -172,7 +173,6 @@ const styles = StyleSheet.create({
         marginLeft: '2.5%',
         fontFamily: 'Raleway',
         color: themes.colors.black, 
-
     },
 
     exploreText: {
