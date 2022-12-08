@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // backgroundColor: 'yellow',
         height: '15%',
+        marginLeft: '5%'
 
     },
     searchIcon: {
@@ -165,7 +166,8 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: themes.colors.black,
         width: '85%',
-        borderRadius: 99999
+        borderRadius: 99999,
+        marginRight: '5%',
     },
     searchInput: {
         // marginLeft: 20,
@@ -178,8 +180,9 @@ const styles = StyleSheet.create({
     exploreText: {
         fontFamily: 'Raleway',
         fontSize: themes.fontSizes.title, 
-        // marginLeft: '10%',
-        marginRight: '55%',
+        textAlign: 'left',
+        width: '100%',
+        marginLeft: '10%'
 
     },
 
