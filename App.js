@@ -19,10 +19,15 @@ import AppLoading from 'expo-app-loading';
 import PostReview from './app/components/post-review';
 import ExplorePage from './app/components/ExplorePage';
 import CommunityPage from './app/components/CommunityPage';
+import { LogBox } from 'react-native';
+
 
 const Stack = createStackNavigator();
 
 export default function App() {
+  //can use this line to hide all warnings. Will be useful when making video/presenting at expo
+  // uncomment before expo / video
+  LogBox.ignoreAllLogs();
   let [fontsLoaded] = useFonts({
     RacingSansOne: require('./assets/Fonts/Racing_Sans_One/RacingSansOne-Regular.ttf'),
     Raleway: require('./assets/Fonts/Raleway/static/Raleway-Regular.ttf'),

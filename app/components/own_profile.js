@@ -237,9 +237,9 @@ const styles = StyleSheet.create({
     color: themes.colors.black,
     fontSize: themes.fontSizes.title,
     //textAlign: "left",
-    paddingTop: "10%",
+    //paddingTop: "15%",
     //paddingRight: '60%',
-    marginRight: '50%'
+    //marginRight: '50%'
   },
   homeBar: {
     flexDirection: 'row',
@@ -265,7 +265,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
-    marginBottom: '10%'
+    marginBottom: '10%',
+    width: '90%',
+    marginTop: '15%'
   },
   profilePhoto: {
     width: 128,
