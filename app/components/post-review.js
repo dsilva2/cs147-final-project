@@ -86,7 +86,7 @@ const PostReview = ({ navigation, route}) => {
             <Text style={styles.topBarText}>
                 Recent Activity
             </Text>
-            <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: origin, image })}}>
+            <Pressable onPress={() => {navigation.navigate("own-profile", { userInfo: origin, image })}}>
                 <Text style={styles.xText}>✕</Text>
             </Pressable>
         </View>
