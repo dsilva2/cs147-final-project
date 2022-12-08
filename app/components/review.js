@@ -324,7 +324,7 @@ const styles = StyleSheet.create({
   },
   xText: {
     color: themes.colors.grey,
-    fontSize: 32,
+    fontSize: themes.fontSizes.xText,
     textAlign: 'right',
     marginRight: '5%',
   },
@@ -454,8 +454,8 @@ modalView: {
     borderColor: themes.colors.black
 },
 myDahaPhoto: {
-    width: 128,
-    height: 128,
+    width: themes.imageSizes.profilePhoto,
+    height: themes.imageSizes.profilePhoto,
     borderRadius: 9999,
   },
   thanksText: {

@@ -80,7 +80,7 @@ export default function SuggestedFriendItem ({name, handle, navigation}) {
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 75, 
+        height: themes.containerSizes.suggestedFriendItem, 
         justifyContent: 'center',
         alignItems: 'center', 
         flexDirection: 'row',
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
 
     xText: {
         color: themes.colors.grey,
-        fontSize: 32,
+        fontSize: themes.fontSizes.xText,
         marginRight: '10%',
     },
 

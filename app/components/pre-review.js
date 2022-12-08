@@ -183,13 +183,13 @@ const styles = StyleSheet.create({
   },
   xText: {
     color: themes.colors.grey,
-    fontSize: 32,
+    fontSize: themes.fontSizes.xText,
     textAlign: 'right',
     marginRight: '5%'
   },
   nameText: {
     color: themes.colors.black,
-    fontSize: 34,
+    fontSize: themes.fontSizes.title,
     fontFamily: 'Raleway',
 
   },
@@ -197,14 +197,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   myDahaPhoto: {
-    width: 128,
-    height: 128,
+    width: themes.imageSizes.profilePhoto,
+    height: themes.imageSizes.profilePhoto,
     borderRadius: 9999,
     marginRight: '-10%',
   },
   ownPhoto: {
-    width: 128,
-    height: 128,
+    width: themes.imageSizes.profilePhoto,
+    height: themes.imageSizes.profilePhoto,
     borderRadius: 9999,
     marginTop: '10%'
   },

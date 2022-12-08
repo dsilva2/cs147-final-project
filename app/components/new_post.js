@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   xText: {
     color: themes.colors.grey,
-    fontSize: 32,
+    fontSize: themes.fontSizes.xText,
     textAlign: 'right',
     marginLeft: '85%',
     marginRight: '5%'
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: 'RacingSansOne',
     color: themes.colors.orange,
-    fontSize: 48,
+    fontSize: themes.fontSizes.logo,
     textAlign: "center",
     //paddingTop: "20%",
   },

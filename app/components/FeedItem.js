@@ -128,7 +128,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         display: 'flex',
         // height: '15%',
-        height: 160,
+        height: themes.containerSizes.feedItem,
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
@@ -151,7 +151,8 @@ const styles = StyleSheet.create({
         aspectRatio: 1,
         borderRadius: '50%',
         marginLeft: '20%',
-        marginBottom: "35%"
+        marginBottom: "35%",
+        borderRadius: 9999,
     },
 
     postInfoView: {

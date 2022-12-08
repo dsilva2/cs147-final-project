@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
 
     xText: {
         color: themes.colors.grey,
-        fontSize: 32,
+        fontSize: themes.fontSizes.xText,
         textAlign: 'right',
         marginRight: '5%'
       },   
@@ -303,7 +303,7 @@ const styles = StyleSheet.create({
 
     modalXText: {
         color: themes.colors.grey,
-        fontSize: 32,
+        fontSize: themes.fontSizes.xText,
         textAlign: 'right',
         marginRight: '5%',
       },

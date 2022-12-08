@@ -24,6 +24,7 @@ const MyDaha = ({ navigation, route}) => {
 
 
 
+
   
 
 
@@ -241,19 +242,20 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     padding: 8,
     width: '100%',
-    paddingTop: '20%',
+    paddingTop: '10%',
     backgroundColor: themes.colors.white,
     height: '100%',
   },
   xText: {
     color: themes.colors.grey,
-    fontSize: 32,
+    fontSize: themes.fontSizes.xText,
     textAlign: 'right',
-    marginRight: '5%'
+    marginRight: '5%',
+    marginTop: '5%'
   },
   nameText: {
     color: themes.colors.black,
-    fontSize: 34,
+    fontSize: themes.fontSizes.title,
     fontFamily: 'Raleway',
 
   },
@@ -261,8 +263,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   myDahaPhoto: {
-    width: 128,
-    height: 128,
+    width: themes.imageSizes.profilePhoto,
+    height: themes.imageSizes.profilePhoto,
     borderRadius: 9999,
   },
   dahaPhoto: {
@@ -278,8 +280,8 @@ const styles = StyleSheet.create({
     marginRight: '5%'
   },
   changePost: {
-    width: 32,
-    height: 32,
+    width: themes.imageSizes.settingsButton,
+    height: themes.imageSizes.settingsButton,
     marginLeft: '5%'
   },
   name: {
@@ -289,20 +291,20 @@ const styles = StyleSheet.create({
   textInfo: {
     color: themes.colors.grey,
     fontFamily: 'Raleway',
-    fontSize: 17
+    fontSize: themes.fontSizes.largeBody
 
   },
   itemInfo: {
     color: themes.colors.black,
     fontFamily: 'Raleway',
-    fontSize: 17
+    fontSize: themes.fontSizes.largeBody
 
 
   },
   statusText: {
     color: themes.colors.orange,
     fontFamily: 'Raleway',
-    fontSize: 17
+    fontSize: themes.fontSizes.largeBody
 
   },
   header: {
@@ -317,8 +319,8 @@ const styles = StyleSheet.create({
 
   },
   profilePic: {
-    height: 24,
-    width: 24,
+    height: themes.imageSizes.smallProfilePic,
+    width: themes.imageSizes.smallProfilePic,
     borderRadius: '50%',
     marginRight: 4,
   },

@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontFamily: 'RacingSansOne',
     color: themes.colors.orange,
-    fontSize: 48,
+    fontSize: themes.fontSizes.logo,
     textAlign: "left",
     paddingTop: "10%",
     paddingRight: '60%'
@@ -188,11 +188,11 @@ const styles = StyleSheet.create({
     paddingBottom: '5%',
   },
   homeBarButton: {
-    width: 48,
-    height: 48,
+    width: themes.imageSizes.homeBarButton,
+    height: themes.imageSizes.homeBarButton,
   },
   postButton: {
-    width: 80,
-    height: 80,
+    width: themes.imageSizes.postButton,
+    height: themes.imageSizes.postButton,
   }
 });

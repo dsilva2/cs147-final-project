@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
   },
   xText: {
     color: themes.colors.grey,
-    fontSize: 32,
+    fontSize: themes.fontSizes.xText,
     textAlign: 'right',
     marginLeft: '85%',
     marginRight: '5%',
@@ -254,17 +254,17 @@ requestedButton: {
     paddingBottom: '5%',
   },
   homeBarButton: {
-    width: 48,
-    height: 48,
+    width: themes.imageSizes.homeBarButton,
+    height: themes.imageSizes.homeBarButton,
   },
   settingsButton: {
-      width: 32,
-      height: 32,
+      width: themes.imageSizes.settingsButton,
+      height: themes.imageSizes.settingsButton,
       marginLeft: '50%'
   },
   postButton: {
-    width: 80,
-    height: 80,
+    width: themes.imageSizes.postButton,
+    height: themes.imageSizes.postButton,
   },
   profileTopBar: {
     flexDirection: 'row',
@@ -273,8 +273,8 @@ requestedButton: {
     marginBottom: '10%'
   },
   profilePhoto: {
-    width: 128,
-    height: 128,
+    width: themes.imageSizes.profilePhoto,
+    height: themes.imageSizes.profilePhoto,
     alignContent: 'flex-start',
     //marginRight: '10%',
     borderRadius: '100%',
@@ -296,7 +296,7 @@ requestedButton: {
     color: themes.colors.black
   },
   nameBox: {
-    height: 128,
+    height: themes.imageSizes.profilePhoto,
     marginRight: '5%',
     marginLeft: '5%',
     justifyContent: 'space-between',

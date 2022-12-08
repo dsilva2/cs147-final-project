@@ -194,12 +194,12 @@ const styles = StyleSheet.create({
         paddingBottom: '5%',
       },
       homeBarButton: {
-        width: 48,
-        height: 48,
+        width: themes.imageSizes.homeBarButton,
+        height: themes.imageSizes.homeBarButton,
       },
       postButton: {
-        width: 80,
-        height: 80,
+        width: themes.imageSizes.postButton,
+        height: themes.imageSizes.postButton,
       }, 
       
       suggestedFriendsView: {
