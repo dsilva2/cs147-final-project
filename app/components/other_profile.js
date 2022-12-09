@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable, Modal } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
 import 'react-native-gesture-handler';
@@ -20,10 +20,13 @@ export default function OtherProfile({navigation, route}) {
     
     console.log(userInfo)
 
+    const [modalVisible, setModalVisible] = useState(false)
+
+
     let lowercaseName = userInfo[0].toLowerCase();
     lowercaseName = lowercaseName.replace(/\s/g, '');
     const firstName = (userInfo[0].split(" "))[0]
-    console.log(lowercaseName, firstName)
+    const confirmationMessage = 'Your friend request to ' + userInfo[0] + " has been sent!"
 
     const filledStar = <MaterialCommunityIcons name="star-four-points" size={'25%'} color={themes.colors.orange} />
     const unfilledStar = <MaterialCommunityIcons name="star-four-points-outline" size={'25%'} color={themes.colors.orange} />
@@ -32,7 +35,7 @@ export default function OtherProfile({navigation, route}) {
     let requestStatus;
     const [requestSent, sendRequest] = useState(false)
 
-    const sentRequest = <View style={styles.requestButton} ><Text style={styles.friendRequestText}>Send Friend Request</Text></View>
+    const sentRequest = <Pressable style={styles.requestButton} onPress={() => setModalVisible(true)}><Text style={styles.friendRequestText}>Send Friend Request</Text></Pressable>
     const pendingRequest = <View style={styles.requestedButton}><Text style={styles.friendRequestText}>Request Pending</Text></View>
 
     if (!requestSent) {
@@ -126,6 +129,30 @@ export default function OtherProfile({navigation, route}) {
             <Pressable style={styles.friendRequest} onPress={() => sendRequest(!requestSent)}>
                 {requestStatus}
             </Pressable>
+
+            <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(false);
+          }}
+        >
+          <View style={styles.modalView}>
+            <Pressable
+                onPress={() => {sendRequest(true)}}
+                onPressOut={() => setModalVisible(false)}
+              >
+                <Text style={styles.modalXText}>✕</Text>
+              </Pressable>
+              <View style={styles.modalImage}>{image}</View>
+              <Text style={styles.requestNameText}>
+                  {userInfo[0]}
+              </Text>
+              <Text style={styles.confirmationText}>{confirmationMessage}</Text>
+          </View>
+        </Modal>
 
             
 
@@ -372,4 +399,50 @@ requestedButton: {
     marginTop: '5%',
     textAlign: 'center'
   },
+  modalView: {
+    justifyContent: 'center',
+    width: '80%',
+    height: '35%',
+    marginHorizontal: '10%',
+    marginTop: '62.5%',
+    //marginBottom: '20%',
+    backgroundColor: themes.colors.white,
+    shadowColor: themes.colors.black,
+    shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 1,
+      shadowRadius: 500,
+      elevation: 5,
+    borderRadius: 20,
+    borderWidth: 0.25,
+    borderColor: themes.colors.black
+},
+modalXText: {
+  color: themes.colors.grey,
+  fontSize: themes.fontSizes.xText,
+  textAlign: 'right',
+  marginRight: '5%',
+  marginTop: '10%'
+},
+modalImage: {
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginTop: '10%'
+},
+requestNameText: {
+  fontSize: themes.fontSizes.title,
+  color: themes.colors.black,
+  fontFamily: 'Raleway',
+  textAlign: 'center',
+  marginTop: '2.5%',
+},
+confirmationText: {
+  fontSize: themes.fontSizes.largeBody,
+  fontFamily: 'Raleway',
+  color: themes.colors.black,
+  textAlign: 'center',
+  marginVertical: '5%',
+},
 });
