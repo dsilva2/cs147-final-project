@@ -199,15 +199,19 @@ export default function OtherProfile({navigation, route}) {
         <PastDahaList feed={sampleFeed}/>
  
       <View style={styles.homeBar}>
-        <Image
-        source={Icons.home.light}
-        style={styles.homeBarButton}>
-        </Image>
+          <Pressable onPress={() => navigation.navigate("home-screen")}>
+              <Image
+                source={Icons.home.dark}
+                style={styles.homeBarButton}>
+              </Image>
+          </Pressable>
 
+        <Pressable onPress={() => navigation.navigate("explore-page", {params: {someText: "This is some text"}})}> 
         <Image
         source={Icons.search.light}
         style={styles.homeBarButton}>
         </Image>
+        </Pressable>
 
         <Pressable onPress={() => {navigation.navigate("new-post")}}>
             <Image
@@ -221,10 +225,13 @@ export default function OtherProfile({navigation, route}) {
         style={styles.homeBarButton}>
         </Image>
 
-        <Image
-        source={Icons.profile.dark}
-        style={styles.homeBarButton}>
-        </Image>
+        <Pressable onPress={() => {navigation.navigate("own-profile")}}>
+
+          <Image
+          source={Icons.profile.light}
+          style={styles.homeBarButton}>
+          </Image>
+        </Pressable>
       </View>
     </View>
   );
