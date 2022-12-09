@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, Pressable, TextInput, FlatList } from 'react-native';
 import Icons from "../../assets/Icons";
 import themes from '../../assets/Themes/themes';
+import { MaterialIcons } from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import 'react-native-gesture-handler';
@@ -11,6 +12,8 @@ import 'react-native-gesture-handler';
 //var desiredItem = "Tell us in a few words what you’re looking to borrow..."
 var desiredItem = "..asdf."
 var detailsBlank = "Elaborate as you'd like..."
+
+
 
 
 
@@ -52,6 +55,22 @@ export default function NewPost({navigation, sampleFeed, setFeed}) {
     }
 
     // console.log(item)
+
+    const orangeButton = <Pressable style={styles.postButton} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, needByText, returnByText, detailsText], makingNewPost: true })}}>
+                          <Text style={styles.postButtonText}>Post </Text>
+                          <MaterialIcons name="keyboard-arrow-right" size={'25%'} color={themes.colors.white} />
+                          </Pressable>
+
+    const greyButton = <View style={styles.postButtonGrey}>
+                        <Text style={styles.postButtonText}>Post </Text>
+                        <MaterialIcons name="keyboard-arrow-right" size={'25%'} color={themes.colors.white} />
+                        </View>
+
+    let buttonDisplayed = greyButton;
+
+    if (itemText != '' && needByText != '' && returnByText != '') {
+      buttonDisplayed = orangeButton
+    }
     
   return (
     <View style={styles.container}>
@@ -146,13 +165,7 @@ export default function NewPost({navigation, sampleFeed, setFeed}) {
 
       </View>
       {/* <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, detailsText] }); setFeed([...sampleFeed, {name: postCreatorName, item: itemText, size: sizeText, color: colorText,}])}}> */}
-      <Pressable style={styles.postButtonImage} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemText, sizeText, colorText, occasionText, needByText, returnByText, detailsText], makingNewPost: true })}}>
-
-        <Image
-            source={Icons.post_button.orange}
-            style={styles.myDahaPhoto}>
-        </Image>
-      </Pressable>
+      {buttonDisplayed}
             
         {/* <Pressable style={styles.postButton} onPress={() => {navigation.navigate("my-daha", { origin: [itemText, detailsText] })}}>
             <Text style={styles.postButtonText}>Post →</Text>
@@ -248,13 +261,25 @@ postButton: {
     borderRadius: 9999,
     flexDirection: 'row',
     marginLeft: '50%',
-    marginTop: '20%'
+    marginTop: '20%',
+    width: '33%'
+  },
+  postButtonGrey: {
+    height: '5%',
+    backgroundColor: themes.colors.grey,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 9999,
+    flexDirection: 'row',
+    marginLeft: '50%',
+    marginTop: '20%',
+    width: '33%'
   },
   postButtonText: {
     color: themes.colors.white,
     fontSize: themes.fontSizes.subtitle,
-    paddingLeft: '10%',
-    paddingRight: '10%',
+    //paddingLeft: '10%',
+    //paddingRight: '10%',
   },
   postButtonImage: {
     justifyContent: 'flex-end',
