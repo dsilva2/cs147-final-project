@@ -146,10 +146,13 @@ export default function HomeScreen({navigation, route}) {
             </Image>
         </Pressable>
 
+        <Pressable onPress={() => {navigation.navigate("message-screen")}}>
+
         <Image
         source={Icons.message.light}
         style={styles.homeBarButton}>
         </Image>
+        </Pressable>
 
 <Pressable onPress={() => {navigation.navigate("own-profile")}}>
 

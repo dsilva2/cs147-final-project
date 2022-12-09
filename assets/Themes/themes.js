@@ -30,5 +30,6 @@ export default Themes = {
     containerSizes: {
         feedItem: 160 * sz,
         suggestedFriendItem: 75 * sz,
+        messageItem: 100 * sz,
     }
 };

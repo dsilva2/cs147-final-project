@@ -220,10 +220,13 @@ export default function OtherProfile({navigation, route}) {
             </Image>
         </Pressable>
 
-        <Image
-        source={Icons.message.light}
-        style={styles.homeBarButton}>
-        </Image>
+        <Pressable onPress={() => {navigation.navigate("message-screen")}}>
+
+          <Image
+          source={Icons.message.light}
+          style={styles.homeBarButton}>
+          </Image>
+        </Pressable>
 
         <Pressable onPress={() => {navigation.navigate("own-profile")}}>
 

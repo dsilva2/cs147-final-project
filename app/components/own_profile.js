@@ -211,10 +211,13 @@ export default function OwnProfile({navigation, route}) {
             </Image>
         </Pressable>
 
-        <Image
-        source={Icons.message.light}
-        style={styles.homeBarButton}>
-        </Image>
+        <Pressable onPress={() => {navigation.navigate("message-screen")}}>
+
+          <Image
+          source={Icons.message.light}
+          style={styles.homeBarButton}>
+          </Image>
+        </Pressable>
 
         <Image
         source={Icons.profile.dark}
