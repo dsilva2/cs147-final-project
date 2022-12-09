@@ -12,7 +12,7 @@ import { MaterialCommunityIcons, Fontisto, FontAwesome, MaterialIcons, FontAweso
 
 const Review = ({ navigation, route}) => {
     const { userInfo } = route.params;
-    console.log("REVIEW", userInfo)
+    //console.log("REVIEW", userInfo)
     const firstName = (userInfo[0].split(" "))[0]
     const [itemText, onChangeItem] = useState('');
     const [modalVisible, setModalVisible] = useState(false)
@@ -37,7 +37,7 @@ const Review = ({ navigation, route}) => {
     let soapDisplayed, soapText;
     let handshakeDisplayed, handshakeText;
     let clockDisplayed, clockText;
-    let buttonDisplayed;
+    let buttonDisplayed = greySubmit;
     const commentPlaceholder = 'How was your daha experience with ' + firstName + "?"
     const thanksForReviewing = 'Thank you for reviewing ' + firstName + "!"
     const[firstFilling, setFirstStar] = useState(false)
@@ -55,38 +55,74 @@ const Review = ({ navigation, route}) => {
     const [handshake, setHandshakeColor] = useState(false)
     const [clock, setClockColor] = useState(false)
 
+
     if (firstFilling) {
         firstStar = filledStar
+        buttonDisplayed = orangeSubmit
     }
     if (!firstFilling) {
         firstStar = unfilledStar
     }
     if (secondFilling) {
         secondStar = filledStar
+        firstStar = filledStar
+        buttonDisplayed = orangeSubmit
     }
     if (!secondFilling) {
         secondStar = unfilledStar
     }
     if (thirdFilling) {
         thirdStar = filledStar
+        secondStar = filledStar
+        firstStar = filledStar
+        buttonDisplayed = orangeSubmit
     }
     if (!thirdFilling) {
         thirdStar = unfilledStar
     }
     if (fourthFilling) {
         fourthStar = filledStar
+        thirdStar = filledStar
+        secondStar = filledStar
+        firstStar = filledStar
+        buttonDisplayed = orangeSubmit
     }
     if (!fourthFilling) {
         fourthStar = unfilledStar
     }
     if (fifthFilling) {
         fifthStar = filledStar
+        fourthStar = filledStar
+        thirdStar = filledStar
+        secondStar = filledStar
+        firstStar = filledStar
         buttonDisplayed = orangeSubmit
     }
     if (!fifthFilling) {
         fifthStar = unfilledStar
-        buttonDisplayed = greySubmit
+        //buttonDisplayed = greySubmit
     }
+
+    const fiveStars = <View style={styles.stars} onPress={() => setStarFilling(!starFilling)}>
+                            <Pressable onPress={() => setFirstStar(!firstFilling)}>
+                                {firstStar}
+                            </Pressable>
+                            <Pressable onPress={() => setSecondStar(!secondFilling)}>
+                                {secondStar}
+                            </Pressable>
+                            <Pressable onPress={() => setThirdStar(!thirdFilling)}>
+                                {thirdStar}
+                            </Pressable>
+                            <Pressable onPress={() => setFourthStar(!fourthFilling)}>
+                                {fourthStar}
+                            </Pressable>
+                            <Pressable onPress={() => setFifthStar(!fifthFilling)}>
+                                {fifthStar}
+                            </Pressable>
+                        </View>
+
+
+
     if (smile) {
         smileDisplayed = <FontAwesome5 name="smile-beam" size={'50%'} color={themes.colors.orange} />
         smileText = <Text style={styles.traitTextOrange}>Courteous</Text>
@@ -192,23 +228,7 @@ const Review = ({ navigation, route}) => {
                 <Text style={styles.largeText}>
                     Rate your experience*
                 </Text>
-                <View style={styles.stars} onPress={() => setStarFilling(!starFilling)}>
-                    <Pressable onPress={() => setFirstStar(!firstFilling)}>
-                        {fifthStar}
-                    </Pressable>
-                    <Pressable onPress={() => setSecondStar(!secondFilling)}>
-                        {fifthStar}
-                    </Pressable>
-                    <Pressable onPress={() => setThirdStar(!thirdFilling)}>
-                        {fifthStar}
-                    </Pressable>
-                    <Pressable onPress={() => setFourthStar(!fourthFilling)}>
-                        {fifthStar}
-                    </Pressable>
-                    <Pressable onPress={() => setFifthStar(!fifthFilling)}>
-                        {fifthStar}
-                    </Pressable>
-                </View>
+                {fiveStars}
             </View>
 
             <View style={styles.selectBox}>
