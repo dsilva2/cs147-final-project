@@ -79,14 +79,14 @@ export default function MessageItem({postCreatorName, itemNeeded, sizeNeeded, co
 
     return(
         <SafeAreaView>
-        <Pressable style={styles.container}>
+        <Pressable style={styles.container} onPress={() => {navigation.navigate("dm-screen", { origin: postCreatorName })}}>
             <View style={styles.profileImageView}>
                 {/* <Image source={require(str)} style={styles.profileImage}></Image> */}
                 {image}
             </View>
 
             {/* <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details] })}}> */}
-            <Pressable style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details], makingNewPost: false })}}>
+            <View style={styles.postInfoView} onPress={() => {navigation.navigate("my-daha", { origin: [postCreatorName, itemNeeded, sizeNeeded, colorNeeded, occasionNeeded, dateNeededBy, dateReturnedBy, details], makingNewPost: false })}}>
 
                 {/* <Text style={styles.nameText}>{postCreatorName}</Text> */}
                 {postCreatorNameText}
@@ -95,7 +95,7 @@ export default function MessageItem({postCreatorName, itemNeeded, sizeNeeded, co
                 <Text style={styles.needByText}>{dateNeededBy}</Text>
 
 
-            </Pressable>
+            </View>
             <MaterialIcons name="keyboard-arrow-right" size={'33%'} color={themes.colors.black} />
 
             

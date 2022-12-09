@@ -247,7 +247,7 @@ const styles = StyleSheet.create({
   },
   mediumText: {
     color: themes.colors.orange,
-    fontSize: 17,
+    fontSize: themes.fontSizes.largeBody,
     textAlign: 'left',
     width: '100%',
     fontFamily: 'Raleway',

@@ -119,9 +119,9 @@ const MyDaha = ({ navigation, route}) => {
 
 
   //want this to redirect to message screen at some point
-  let bottomContent = <View style = {styles.gotchuButton} onPress={() => {navigation.navigate("splash-screen")}}>
+  let bottomContent = <Pressable style = {styles.gotchuButton} onPress={() => {navigation.navigate("dm-screen", { origin: origin[0] })}}>
         <Text style={styles.gotchuText}>GOTCHU!</Text>
-      </View>
+      </Pressable>
 
 
   let image; 

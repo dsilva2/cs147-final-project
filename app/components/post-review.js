@@ -230,20 +230,20 @@ const styles = StyleSheet.create({
   textInfo: {
     color: themes.colors.grey,
     fontFamily: 'Raleway',
-    fontSize: 17
+    fontSize: themes.fontSizes.largeBody,
 
   },
   itemInfo: {
     color: themes.colors.black,
     fontFamily: 'Raleway',
-    fontSize: 17
+    fontSize: themes.fontSizes.largeBody,
 
 
   },
   statusText: {
     color: themes.colors.orange,
     fontFamily: 'Raleway',
-    fontSize: 17
+    fontSize: themes.fontSizes.largeBody,
 
   },
   header: {

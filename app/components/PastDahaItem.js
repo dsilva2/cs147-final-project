@@ -49,7 +49,7 @@ export default function PastDahaItem({postCreatorName, itemNeeded, sizeNeeded, c
     let ownImage = <Image source={require("../../assets/Icons/james.jpg")} style={styles.ownProfileImage}></Image>
 
 
-    let gotchaButton = <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("new-post")}}><Text style={styles.gotchaText}>GOTCHU!</Text></Pressable>
+    let gotchaButton = <Pressable style={styles.gotchaButton} onPress={() => {navigation.navigate("dm-screen")}}><Text style={styles.gotchaText}>GOTCHU!</Text></Pressable>
     let postCreatorNameText = <Text style={styles.nameText}>{postCreatorName}</Text>
 
     if (postCreatorName == "You"){

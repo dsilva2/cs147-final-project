@@ -20,6 +20,7 @@ import PostReview from './app/components/post-review';
 import ExplorePage from './app/components/ExplorePage';
 import CommunityPage from './app/components/CommunityPage';
 import MessageScreen from './app/components/MessageScreen';
+import DMScreen from './app/components/DMScreen';
 import { LogBox } from 'react-native';
 
 
@@ -53,6 +54,7 @@ export default function App() {
           <Stack.Screen name="review" component={Review} />
           <Stack.Screen name="post-review" component={PostReview} />
           <Stack.Screen name="message-screen" component={MessageScreen} />
+          <Stack.Screen name="dm-screen" component={DMScreen} />
 
 
       </Stack.Navigator>
