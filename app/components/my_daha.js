@@ -23,7 +23,14 @@ const MyDaha = ({ navigation, route}) => {
   const { makingNewPost } = route.params
 
 
+  const routes = navigation.getState()?.routes;
+  let prevRoute = routes[routes.length - 2].name;
+  console.log(prevRoute)
 
+
+  if (prevRoute == 'new-post') {
+    prevRoute = 'home-screen'
+  }
 
   
 
@@ -151,7 +158,7 @@ const MyDaha = ({ navigation, route}) => {
     
     <View style={styles.container}>
 
-      <Pressable onPress={() => {navigation.navigate("home-screen", {newObj: newPostObj})}}>
+      <Pressable onPress={() => {navigation.navigate(prevRoute, {newObj: newPostObj})}}>
         <Text style={styles.xText}>✕</Text>
       </Pressable>
 

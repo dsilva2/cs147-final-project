@@ -13,6 +13,10 @@ const PreReview = ({ navigation, route}) => {
   const { origin } = route.params;
   const { makingNewPost } = route.params
 
+  const routes = navigation.getState()?.routes;
+  const prevRoute = routes[routes.length - 2].name;
+  console.log(prevRoute.name)
+
 
   const orangeButton = <Pressable 
     style={styles.requestButton} 
@@ -86,7 +90,7 @@ const PreReview = ({ navigation, route}) => {
             <Text style={styles.topBarText}>
                 Recent Activity
             </Text>
-            <Pressable onPress={() => {navigation.navigate("other-profile", { userInfo: origin, image })}}>
+            <Pressable onPress={() => {navigation.navigate(prevRoute, { userInfo: origin, image })}}>
                 <Text style={styles.xText}>✕</Text>
             </Pressable>
         </View>
