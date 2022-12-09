@@ -444,5 +444,6 @@ confirmationText: {
   color: themes.colors.black,
   textAlign: 'center',
   marginVertical: '5%',
+  marginBottom: '10%'
 },
 });
