@@ -9,6 +9,7 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
+supabase/supabase.js
 
 # macOS
 .DS_Store
