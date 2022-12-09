@@ -12,7 +12,6 @@ const PreReview = ({ navigation, route}) => {
   const [data, setData] = useState()
   const { origin } = route.params;
   const { makingNewPost } = route.params
-  console.log("PREREVIEW", origin)
 
 
   const orangeButton = <Pressable 
