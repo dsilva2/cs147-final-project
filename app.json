@@ -1,7 +1,9 @@
 {
   "expo": {
-    "name": "final-project",
+    "name": "Final project",
     "slug": "daha",
+    "owner": "dahateam",
+    "scheme": "dahalink://",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,13 +14,15 @@
       "backgroundColor": "#ffffff"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/7d4e720a-51eb-4855-b573-d017fed23f1f"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dahateam.daha"
     },
     "android": {
       "adaptiveIcon": {
@@ -34,6 +38,8 @@
         "projectId": "7d4e720a-51eb-4855-b573-d017fed23f1f"
       }
     },
-    "owner": "dahateam"
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
